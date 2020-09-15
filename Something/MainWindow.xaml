@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Something"
-        mc:Ignorable="d" ResizeMode="CanMinimize"
+        mc:Ignorable="d" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
         Title="Something" Height="560" Width="520">
     <Grid Width="500" Height="520" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid x:Name="TheGame" Background="#FF4FB092" Visibility="Collapsed">
-            <Button Click="TestClick" Content="adadaaaaaaaaaaaaaaaaaaaaaa" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></Button>
+            <Button Click="TestClick" Content="Click to change color" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></Button>
         </Grid>
         <Grid x:Name="OpeningScreen" Background="#FFE26262">
             <Button Click="TheStart" Width="110" Height="50" Content="Start" BorderBrush="{x:Null}" FontSize="20" FontFamily="Segoe Print" Background="#FFDA1C1C" Foreground="#FFC6E24A" Cursor="Hand">
@@ -19,8 +19,8 @@
                 </Button.Resources>
             </Button>
             <Grid VerticalAlignment="Bottom" Height="100">
-                <TextBox x:Name="SkipCode" Text="" Width="125" Height="20" HorizontalAlignment="Left" Margin="150,0,0,0" BorderBrush="{x:Null}" FontSize="14"/>
-                <Button Width="75" Height="20" Content="Decode" HorizontalAlignment="Right" Margin="0,0,150,0" FontSize="14" BorderBrush="{x:Null}" Padding="0" FontFamily="Arial" Cursor="Hand"/>
+                <TextBox x:Name="SkipCode_txt" Text="" Width="125" Height="20" HorizontalAlignment="Left" Margin="150,0,0,0" BorderBrush="{x:Null}" FontSize="14"/>
+                <Button Click="SkipCode_btn" Width="75" Height="20" Content="Skip" HorizontalAlignment="Right" Margin="0,0,150,0" FontSize="14" BorderBrush="{x:Null}" Padding="0" FontFamily="Arial" Cursor="Hand"/>
             </Grid>
         </Grid>
     </Grid>

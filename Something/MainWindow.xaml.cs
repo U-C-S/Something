@@ -37,5 +37,18 @@ namespace Something
             Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
             TheGame.Background = brush;
         }
+
+        private void SkipCode_btn(object sender, RoutedEventArgs e)
+        {
+            if(SkipCode_txt.Text == "")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
+
+            }
+        }
     }
 }

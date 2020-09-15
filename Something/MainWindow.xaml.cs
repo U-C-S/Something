@@ -24,5 +24,18 @@ namespace Something
         {
             InitializeComponent();
         }
+
+        private void TheStart(object sender, RoutedEventArgs e)
+        {
+            OpeningScreen.Visibility = Visibility.Collapsed;
+            TheGame.Visibility = Visibility.Visible;
+        }
+
+        private void TestClick(object sender, RoutedEventArgs e)
+        {
+            Random rand = new Random();
+            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
+            TheGame.Background = brush;
+        }
     }
 }

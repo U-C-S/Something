@@ -24,7 +24,7 @@ namespace Something
         {
             InitializeComponent();
         }
-
+        branch br = new branch();
         private void TheStart(object sender, RoutedEventArgs e)
         {
             OpeningScreen.Visibility = Visibility.Collapsed;
@@ -40,9 +40,9 @@ namespace Something
 
         private void SkipCode_btn(object sender, RoutedEventArgs e)
         {
-            if(SkipCode_txt.Text == "")
+            if (SkipCode_txt.Text == "")
             {
-
+                MessageBox.Show(br.texxt);
             }
             else
             {

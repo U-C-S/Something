@@ -12,8 +12,6 @@
         </Grid>
 
         <Grid x:Name="OpeningScreen" Background="#000">
-            <TextBlock x:Name="mouse" Text="0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
 
             <Button Content="How to Play" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0" Foreground="White"/>
             <Button Content="About" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,85,0" Foreground="White"/>

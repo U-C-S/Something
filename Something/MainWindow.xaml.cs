@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Threading;
-using System.Windows.Markup;
 
 namespace Something
 {
@@ -41,12 +40,11 @@ namespace Something
             TheGame.Background = brush;
         }
 
-        Branch br = new Branch();
         private void SkipCode_btn(object sender, RoutedEventArgs e)
         {
             if (SkipCode_txt.Text == "")
             {
-                System.Windows.MessageBox.Show(br.texxt);
+                System.Windows.MessageBox.Show("That's empty");
             }
             else
             {
@@ -56,11 +54,54 @@ namespace Something
         
         private void Form1_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            double xp = e.GetPosition(centerPoint).X;
-            double yp = e.GetPosition(centerPoint).Y;
-            mouse.Text = $"({xp}, {yp})";
-            double hue = (Math.Atan2(xp,yp) * 180 / Math.PI) + 180;
-            OpeningScreen.Background = new SolidColorBrush(Branch.SimpleColorTransforms.HsLtoRgb(hue,0.7,0.5));
+            double hue = (Math.Atan2(e.GetPosition(centerPoint).X , e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
+            OpeningScreen.Background = new SolidColorBrush(LongFunctions.HSLtoRGB(hue,0.7,0.5));
         }
+    }
+
+    class LongFunctions
+    {
+        public static Color HSLtoRGB(double h, double s, double l)
+        {
+            h = Math.Max(0D, Math.Min(360D, h)) / 360D;
+            s = Math.Max(0D, Math.Min(1D, s));
+            l = Math.Max(0D, Math.Min(1D, l));
+
+            if (Math.Abs(s) < 0.000000000000001)
+            {
+                return Color.FromRgb(
+                        (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{l * 255D:0.00}")))),
+                        (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{l * 255D:0.00}")))),
+                        (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{l * 255D:0.00}")))));
+            }
+
+            double q = (l < .5D) ? (l * (1D + s)) : ((l + s) - (l * s));
+            double p = (2D * l) - q;
+
+            double[] T = { (h + (1D / 3D)) , h , (h - (1D / 3D)) };
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (T[i] < 0D)
+                    T[i] += 1D;
+                if (T[i] > 1D)
+                    T[i] -= 1D;
+
+                if ((T[i] * 6D) < 1D)
+                    T[i] = p + ((q - p) * 6D * T[i]);
+                else if ((T[i] * 2D) < 1)
+                    T[i] = q;
+                else if ((T[i] * 3D) < 2)
+                    T[i] = p + ((q - p) * ((2D / 3D) - T[i]) * 6D);
+                else
+                    T[i] = p;
+            }
+
+            return Color.FromRgb(
+                    (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[0] * 255D:0.00}")))),
+                    (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[1] * 255D:0.00}")))),
+                    (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[2] * 255D:0.00}")))));
+        }
+
     }
 }

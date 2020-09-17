@@ -27,8 +27,10 @@ namespace Something
         {
             InitializeComponent();
         }
+        public bool StartClicked = false;
         private void TheStart(object sender, RoutedEventArgs e)
         {
+            StartClicked = true;
             OpeningScreen.Visibility = Visibility.Collapsed;
             TheGame.Visibility = Visibility.Visible;
         }
@@ -51,13 +53,17 @@ namespace Something
                 System.Windows.MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
             }
         }
-        
-        private void Form1_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        private void mouseColorEffect(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            double hue = (Math.Atan2(e.GetPosition(centerPoint).X , e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
-            OpeningScreen.Background = new SolidColorBrush(LongFunctions.HSLtoRGB(hue,0.7,0.5));
+            //Add a option to disable this effect if (!StartClicked || mouseColEff)
+            if (!StartClicked)
+            {
+                double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
+                OpeningScreen.Background = new SolidColorBrush(LongFunctions.HSLtoRGB(hue, 0.5, 0.5));
+            }
         }
     }
+
 
     class LongFunctions
     {

@@ -4,18 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Something"
-        mc:Ignorable="d" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"  MouseMove="Form1_MouseMove"
-        Title="Something.exe" Height="520" Width="470">
+        mc:Ignorable="d" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" MouseMove="mouseColorEffect"
+        Title="Something.exe" Width="470" Height="522">
+
+    <Window.Resources>
+        <Style x:Key="LinkLikeBtns" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="{x:Null}"/>
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
     <Grid Width="450" Height="480" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid x:Name="TheGame" Background="#FF4FB092" Visibility="Collapsed">
-            <Button Click="TestClick" Content="Click to change color" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></Button>
-        </Grid>
-
-        <Grid x:Name="OpeningScreen" Background="#000">
-
-            <Button Content="How to Play" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0" Foreground="White"/>
-            <Button Content="About" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,85,0" Foreground="White"/>
-            <Button x:Name="Mainbtn" Click="TheStart" Width="110" Height="50" Content="Start" BorderBrush="{x:Null}" FontSize="20" FontFamily="Segoe Print" Background="#FFDA1C1C" Foreground="#FFC6E24A" Cursor="Hand" Margin="0" Panel.ZIndex="2">
+        <Grid x:Name="OpeningScreen" Background="#000" Panel.ZIndex="1">
+            <Button Style="{StaticResource LinkLikeBtns}" Content="How to Play" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0" Foreground="White"/>
+            <Button Style="{DynamicResource LinkLikeBtns}" Content="About" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,85,0" Foreground="White"/>
+            <Button x:Name="Mainbtn" Click="TheStart" Width="110" Height="50" Content="Start" BorderBrush="{x:Null}" FontSize="20" FontFamily="Segoe Print" Background="#FFDA1C1C" Foreground="#FFC6E24A" Cursor="Hand" Panel.ZIndex="5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -31,6 +48,10 @@
             </Grid>
             <Separator Height="20" Margin="0,380,0,0" VerticalAlignment="Top" Width="230"/>
             <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="2" Margin="0,0,0,0" Stroke="Black" Width="2"/>
+        </Grid>
+
+        <Grid x:Name="TheGame" Background="#FF4FB092" Visibility="Collapsed">
+            <Button Click="TestClick" Content="Click to change color" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></Button>
         </Grid>
     </Grid>
 </Window>

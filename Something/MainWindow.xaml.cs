@@ -30,13 +30,7 @@ namespace Something
         }
         public bool StartClicked = false;
         public bool lowCPUenabled = false;
-        private void TheStart(object sender, RoutedEventArgs e)
-        {
-            StartClicked = true;
-            OpeningScreen.Visibility = Visibility.Collapsed;
-            TheGame.Visibility = Visibility.Visible;
-        }
-
+        private void lowCPUcheck(object sender, RoutedEventArgs e) => lowCPUenabled = (bool)lowCPUmode.IsChecked;
         private void mouseColorEffect(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (!StartClicked && !lowCPUenabled)
@@ -47,9 +41,6 @@ namespace Something
                 Mainbtn.Foreground = x;
             }
         }
-
-        private void lowCPUcheck(object sender, RoutedEventArgs e) => lowCPUenabled = (bool)lowCPUmode.IsChecked;
-
         private void SkipCode_btn(object sender, RoutedEventArgs e)
         {
             if (SkipCode_txt.Text == "")
@@ -61,18 +52,30 @@ namespace Something
                 System.Windows.MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
             }
         }
-
-        private void TestClick(object sender, RoutedEventArgs e)
-        {
-            Random rand = new Random();
-            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
-            TheGame.Background = brush;
-        }
-
         private void OpenAboutWindow(object sender, RoutedEventArgs e)
         {
             About about = new About();
             about.ShowDialog();
+        }
+
+        Branch branchdata = new Branch();
+        private void TheStart(object sender, RoutedEventArgs e)
+        {
+            StartClicked = true;
+            OpeningScreen.Visibility = Visibility.Collapsed;
+            TheGame.Visibility = Visibility.Visible;
+            BrContext.Text = branchdata.intialContext;
+        }
+        //The game code starts here:
+
+        private void branchingToOne(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void branchingToTwo(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

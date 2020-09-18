@@ -32,13 +32,13 @@
             <Expander Header="Settings" HorizontalAlignment="Left" Height="55" Margin="5,2,0,0" VerticalAlignment="Top" Width="130" Foreground="White">
                 <Grid Background="White" Width="130" Height="25">
                     <Grid Background="#FF4CB4B2" Margin="2,2.5,4,2">
-                        <CheckBox x:Name="lowCPUmode" Content="Reduse CPU Usage" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="2,2,2,0" Click="lowCPUcheck"/>
+                        <CheckBox x:Name="lowCPUmode" Content="Reduce CPU Usage" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="2,2,2,0" Click="lowCPUcheck"/>
                     </Grid>
                 </Grid>
             </Expander>
 
             <Button Style="{DynamicResource LinkLikeBtns}" Content="How to Play" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0" Foreground="White"/>
-            <Button Style="{DynamicResource LinkLikeBtns}" Content="About" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,85,0" Foreground="White" Click="OpenAboutWindow"/>
+            <Button Style="{DynamicResource LinkLikeBtns}" Content="About" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,41,62.6,0" Foreground="White" Click="OpenAboutWindow"/>
             <Button x:Name="Mainbtn" Style="{DynamicResource LinkLikeBtns}" Click="TheStart" Width="110" Height="50" Content="Start" FontSize="20" FontFamily="Segoe Print" Background="Black" Foreground="#FFC6E24A" Cursor="Hand" Panel.ZIndex="5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
@@ -49,16 +49,22 @@
 
             <TextBlock Margin="0,70,0,0" Text="Something" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Ink Free"/>
 
-            <Grid VerticalAlignment="Bottom" Height="80" Margin="0,0,0,0">
-                <TextBox x:Name="SkipCode_txt" Text="" Width="110" Height="18" HorizontalAlignment="Left" Margin="135,0,0,0" BorderBrush="{x:Null}" FontSize="12"/>
-                <Button Click="SkipCode_btn" Width="70" Height="18" Content="Skip" HorizontalAlignment="Right" Margin="0,0,135,0" FontSize="12" BorderBrush="{x:Null}" Padding="0" Cursor="Hand"/>
+            <Grid VerticalAlignment="Bottom" Height="60" Margin="0,0,0,0">
+                <TextBox x:Name="SkipCode_txt" Text="" Width="100" Height="16" HorizontalAlignment="Left" Margin="146,0,0,0" BorderBrush="{x:Null}" FontSize="11"/>
+                <Button Click="SkipCode_btn" Width="60" Height="16" Content="Skip" HorizontalAlignment="Right" Margin="0,0,146,0" FontSize="11" BorderBrush="{x:Null}" Padding="0" Cursor="Hand"/>
             </Grid>
             <Separator Height="20" Margin="0,380,0,0" VerticalAlignment="Top" Width="230"/>
             <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="2" Margin="0,0,0,0" Stroke="Black" Width="2"/>
+            <Ellipse Fill="#FF020202" HorizontalAlignment="Right" Height="140" Margin="0,-51,-16.4,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
         </Grid>
 
         <Grid x:Name="TheGame" Background="#FF4FB092" Visibility="Collapsed">
-            <Button Click="TestClick" Content="Click to change color" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"></Button>
+            <TextBlock x:Name="BrContext" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="360" Height="240" FontSize="14">
+                <TextBlock.Text>I'm the Evil</TextBlock.Text>
+            </TextBlock>
+
+            <Button x:Name="path1" Click="branchingToOne" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="220,0,0,100" BorderBrush="{x:Null}" Cursor="Hand"/>
+            <Button x:Name="path2" Click="branchingToTwo" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,220,100" BorderBrush="{x:Null}" Cursor="Hand"/>
         </Grid>
     </Grid>
 </Window>

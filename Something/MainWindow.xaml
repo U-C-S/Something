@@ -62,9 +62,9 @@
             <TextBlock x:Name="BrContext" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="360" Height="240" FontSize="14">
                 <TextBlock.Text>I'm the Evil</TextBlock.Text>
             </TextBlock>
-
-            <Button x:Name="path1" Click="branchingToOne" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="220,0,0,100" BorderBrush="{x:Null}" Cursor="Hand"/>
-            <Button x:Name="path2" Click="branchingToTwo" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,220,100" BorderBrush="{x:Null}" Cursor="Hand"/>
+            
+            <Button x:Name="path1" Click="branchingToTwo" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,220,100" BorderBrush="{x:Null}" Cursor="Hand"/>
+            <Button x:Name="path2" Click="branchingToOne" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="220,0,0,100" BorderBrush="{x:Null}" Cursor="Hand"/>
         </Grid>
     </Grid>
 </Window>

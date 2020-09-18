@@ -64,18 +64,35 @@ namespace Something
             StartClicked = true;
             OpeningScreen.Visibility = Visibility.Collapsed;
             TheGame.Visibility = Visibility.Visible;
-            BrContext.Text = branchdata.intialContext;
+            branchdata.intialContext();
+            BrContext.Text = branchdata.consequences;
+            path1.Content = branchdata.choiceOne;
+            path2.Content = branchdata.choiceTwo;
         }
         //The game code starts here:
+        public void ChangeBackground()
+        {
+            Random rand = new Random();
+            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
+            TheGame.Background = brush;
+        }
 
         private void branchingToOne(object sender, RoutedEventArgs e)
         {
-
+            ChangeBackground();
+            branchdata.Start();
+            BrContext.Text = branchdata.consequences;
+            path1.Content = branchdata.choiceOne;
+            path2.Content = branchdata.choiceTwo;
         }
 
         private void branchingToTwo(object sender, RoutedEventArgs e)
         {
-
+            ChangeBackground();
+            branchdata.NotUnderstood();
+            BrContext.Text = branchdata.consequences;
+            path1.Content = branchdata.choiceOne;
+            path2.Content = branchdata.choiceTwo;
         }
     }
 

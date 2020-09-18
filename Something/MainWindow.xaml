@@ -13,12 +13,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="Border" Background="{TemplateBinding Background}">
-                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" TargetName="Border" Value="{x:Null}"/>
-                                <Setter Property="Foreground" Value="Red"/>
+                                <Setter Property="Background" TargetName="Border" Value="#FF323232"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -30,9 +29,17 @@
 
     <Grid Width="450" Height="480" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid x:Name="OpeningScreen" Background="#000" Panel.ZIndex="1">
-            <Button Style="{StaticResource LinkLikeBtns}" Content="How to Play" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0" Foreground="White"/>
-            <Button Style="{DynamicResource LinkLikeBtns}" Content="About" Cursor="Hand" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,85,0" Foreground="White"/>
-            <Button x:Name="Mainbtn" Click="TheStart" Width="110" Height="50" Content="Start" BorderBrush="{x:Null}" FontSize="20" FontFamily="Segoe Print" Background="#FFDA1C1C" Foreground="#FFC6E24A" Cursor="Hand" Panel.ZIndex="5">
+            <Expander Header="Settings" HorizontalAlignment="Left" Height="55" Margin="5,2,0,0" VerticalAlignment="Top" Width="130" Foreground="White">
+                <Grid Background="White" Width="130" Height="25">
+                    <Grid Background="#FF4CB4B2" Margin="2,2.5,4,2">
+                        <CheckBox x:Name="lowCPUmode" Content="Reduse CPU Usage" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="2,2,2,0" Click="lowCPUcheck"/>
+                    </Grid>
+                </Grid>
+            </Expander>
+
+            <Button Style="{DynamicResource LinkLikeBtns}" Content="How to Play" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0" Foreground="White"/>
+            <Button Style="{DynamicResource LinkLikeBtns}" Content="About" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,85,0" Foreground="White" Click="OpenAboutWindow"/>
+            <Button x:Name="Mainbtn" Style="{DynamicResource LinkLikeBtns}" Click="TheStart" Width="110" Height="50" Content="Start" FontSize="20" FontFamily="Segoe Print" Background="Black" Foreground="#FFC6E24A" Cursor="Hand" Panel.ZIndex="5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
@@ -44,7 +51,7 @@
 
             <Grid VerticalAlignment="Bottom" Height="80" Margin="0,0,0,0">
                 <TextBox x:Name="SkipCode_txt" Text="" Width="110" Height="18" HorizontalAlignment="Left" Margin="135,0,0,0" BorderBrush="{x:Null}" FontSize="12"/>
-                <Button Click="SkipCode_btn" Width="70" Height="18" Content="Skip" HorizontalAlignment="Right" Margin="0,0,135,0" FontSize="12" BorderBrush="{x:Null}" Padding="0" FontFamily="Arial" Cursor="Hand"/>
+                <Button Click="SkipCode_btn" Width="70" Height="18" Content="Skip" HorizontalAlignment="Right" Margin="0,0,135,0" FontSize="12" BorderBrush="{x:Null}" Padding="0" Cursor="Hand"/>
             </Grid>
             <Separator Height="20" Margin="0,380,0,0" VerticalAlignment="Top" Width="230"/>
             <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="2" Margin="0,0,0,0" Stroke="Black" Width="2"/>

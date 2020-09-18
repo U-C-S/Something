@@ -20,6 +20,7 @@ namespace Something
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// Completely made by github.com/U-C-S
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -28,6 +29,7 @@ namespace Something
             InitializeComponent();
         }
         public bool StartClicked = false;
+        public bool lowCPUenabled = false;
         private void TheStart(object sender, RoutedEventArgs e)
         {
             StartClicked = true;
@@ -35,12 +37,18 @@ namespace Something
             TheGame.Visibility = Visibility.Visible;
         }
 
-        private void TestClick(object sender, RoutedEventArgs e)
+        private void mouseColorEffect(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            Random rand = new Random();
-            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
-            TheGame.Background = brush;
+            if (!StartClicked && !lowCPUenabled)
+            {
+                double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
+                Brush x = new SolidColorBrush(LongFunctions.HSLtoRGB(hue, 0.5, 0.5));
+                OpeningScreen.Background = x;
+                Mainbtn.Foreground = x;
+            }
         }
+
+        private void lowCPUcheck(object sender, RoutedEventArgs e) => lowCPUenabled = (bool)lowCPUmode.IsChecked;
 
         private void SkipCode_btn(object sender, RoutedEventArgs e)
         {
@@ -53,14 +61,18 @@ namespace Something
                 System.Windows.MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
             }
         }
-        private void mouseColorEffect(object sender, System.Windows.Input.MouseEventArgs e)
+
+        private void TestClick(object sender, RoutedEventArgs e)
         {
-            //Add a option to disable this effect if (!StartClicked || mouseColEff)
-            if (!StartClicked)
-            {
-                double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
-                OpeningScreen.Background = new SolidColorBrush(LongFunctions.HSLtoRGB(hue, 0.5, 0.5));
-            }
+            Random rand = new Random();
+            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
+            TheGame.Background = brush;
+        }
+
+        private void OpenAboutWindow(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
         }
     }
 

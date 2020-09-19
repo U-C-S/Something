@@ -6,7 +6,7 @@ using System.Windows;
 
 
 [assembly: AssemblyTitle("Something")]
-[assembly: AssemblyDescription("A Branching Story Game")]
+[assembly: AssemblyDescription("This is a experimental Text-Based Branching StoryLine Game. In this game, You make the choices for your Character and Experience the respective Consequences. Have Fun.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("UCS")]
 [assembly: AssemblyProduct("Something by U-C-S")]
@@ -19,6 +19,6 @@ using System.Windows;
     ResourceDictionaryLocation.None, 
     ResourceDictionaryLocation.SourceAssembly
 )]
-[assembly: AssemblyVersion("0.6.0.0")]
-[assembly: AssemblyFileVersion("0.6.0.0")]
+[assembly: AssemblyVersion("0.7.0.0")]
+[assembly: AssemblyFileVersion("0.7.0.0")]
 [assembly: NeutralResourcesLanguage("en-US")]

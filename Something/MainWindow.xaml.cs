@@ -28,17 +28,27 @@ namespace Something
         {
             InitializeComponent();
         }
-        public bool StartClicked = false;
-        public bool lowCPUenabled = false;
+        bool StartClicked = false;
+        bool lowCPUenabled = false;
+        bool colEffInverse = false;
         private void lowCPUcheck(object sender, RoutedEventArgs e) => lowCPUenabled = (bool)lowCPUmode.IsChecked;
+        private void InvertColCheck(object sender, RoutedEventArgs e) => colEffInverse = (bool)InvertColEff.IsChecked;
         private void mouseColorEffect(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (!StartClicked && !lowCPUenabled)
             {
                 double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
                 Brush x = new SolidColorBrush(LongFunctions.HSLtoRGB(hue, 0.5, 0.5));
-                OpeningScreen.Background = x;
-                Mainbtn.Foreground = x;
+                if (colEffInverse)
+                {
+                    ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = x;
+                    OpeningScreen.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                }
+                else
+                {
+                    OpeningScreen.Background = Mainbtn.Foreground = x;
+                    ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                }
             }
         }
         private void SkipCode_btn(object sender, RoutedEventArgs e)

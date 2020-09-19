@@ -10,10 +10,11 @@
     <Grid Width="420" Height="450" HorizontalAlignment="Center" VerticalAlignment="Center">
         <!--MENU-->
         <Grid x:Name="OpeningScreen" Background="#000" Panel.ZIndex="1">
-            <Expander Header="Settings" HorizontalAlignment="Left" Height="55" Margin="5,2,0,0" VerticalAlignment="Top" Width="130" Foreground="White">
-                <Grid Background="White" Width="130" Height="25">
+            <Expander Header="Settings" HorizontalAlignment="Left" Height="70" Margin="5,2,0,0" VerticalAlignment="Top" Width="135" Foreground="White">
+                <Grid Background="White" Width="135" Height="45">
                     <Grid Background="#FF4CB4B2" Margin="2,2.5,4,2">
-                        <CheckBox x:Name="lowCPUmode" Content="Reduce CPU Usage" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="2,2,2,0" Click="lowCPUcheck" ToolTip="This removes the Color effect in the Menu"/>
+                        <CheckBox x:Name="lowCPUmode" Content="Reduce CPU Usage" Height="16" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,0" Click="lowCPUcheck" ToolTip="This removes the Color effect in the Menu"/>
+                        <CheckBox x:Name="InvertColEff" Content="Invert Color Effect" Height="20" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,20,2,0" Click="InvertColCheck"/>
                     </Grid>
                 </Grid>
             </Expander>
@@ -31,12 +32,24 @@
             <TextBlock Margin="0,70,0,0" Text="Something" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Ink Free"/>
 
             <Grid VerticalAlignment="Bottom" Height="50" Margin="0,0,0,0">
-                <TextBox x:Name="SkipCode_txt" Text="" Width="100" Height="16" HorizontalAlignment="Left" Margin="131,0,0,0" BorderBrush="{x:Null}" FontSize="11" VerticalAlignment="Center" ToolTip="Enter the Skip code to skip the story"/>
-                <Button Click="SkipCode_btn" Width="60" Height="16" Content="Skip" HorizontalAlignment="Right" Margin="0,0,131,0" FontSize="10" BorderBrush="{x:Null}" Padding="0" Cursor="Hand" VerticalAlignment="Center"/>
+                <TextBox x:Name="SkipCode_txt" Text="" Width="100" Height="16" HorizontalAlignment="Left" Margin="131,17,0,17" BorderBrush="Black" FontSize="11" VerticalAlignment="Center" ToolTip="Enter the Skip code to skip the story"/>
+                <Button Click="SkipCode_btn" Width="60" Height="16" Content="Skip" HorizontalAlignment="Right" Margin="0,17,131,17" FontSize="10" BorderBrush="Black" Padding="0" Cursor="Hand" VerticalAlignment="Center"/>
             </Grid>
-            <Separator Height="20" Margin="0,390,0,0" VerticalAlignment="Top" Width="230"/>
-            <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="2" Margin="0,0,0,0" Stroke="Black" Width="2"/>
-            <Ellipse Fill="#FF020202" HorizontalAlignment="Right" Height="140" Margin="0,-51,-16.4,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
+            <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="1" Margin="0,0,0,0" Stroke="Black" Width="1"/>
+            <Ellipse x:Name="ellipse1" Fill="Black" HorizontalAlignment="Right" Height="140" Margin="0,-50,-15,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
+            <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Margin="0,0,0,0" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
+            <Ellipse x:Name="ellipse3" Fill="Black" Height="250" Margin="0,380,0,0" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
+            <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-30,-60,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
         </Grid>
 
         <!--The Game code-->
@@ -44,7 +57,7 @@
             <TextBlock x:Name="BrContext" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="360" Height="240" FontSize="14">
                 <TextBlock.Text>I'm the Evil</TextBlock.Text>
             </TextBlock>
-            
+
             <Button x:Name="path1" Click="branchingToOne" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,240,100" BorderBrush="{x:Null}" Cursor="Hand"/>
             <Button x:Name="path2" Click="branchingToTwo" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="240,0,0,100" BorderBrush="{x:Null}" Cursor="Hand"/>
         </Grid>

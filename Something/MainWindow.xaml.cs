@@ -41,7 +41,7 @@ namespace Something
                 Brush x = new SolidColorBrush(LongFunctions.HSLtoRGB(hue, 0.5, 0.5));
                 if (colEffInverse)
                 {
-                    ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = x;
+                    ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = Mainbtn.Foreground = x;
                     OpeningScreen.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 }
                 else

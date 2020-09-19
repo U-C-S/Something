@@ -58,41 +58,43 @@ namespace Something
             about.ShowDialog();
         }
 
+
+        //The game code starts here:
+
         Branch branchdata = new Branch();
+        Action x1 { get; set; }
+        Action x2 { get; set; }
         private void TheStart(object sender, RoutedEventArgs e)
         {
             StartClicked = true;
             OpeningScreen.Visibility = Visibility.Collapsed;
             TheGame.Visibility = Visibility.Visible;
             branchdata.intialContext();
-            BrContext.Text = branchdata.consequences;
-            path1.Content = branchdata.choiceOne;
-            path2.Content = branchdata.choiceTwo;
-        }
-        //The game code starts here:
-        public void ChangeBackground()
-        {
-            Random rand = new Random();
-            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
-            TheGame.Background = brush;
+            ExecuteTheChoice();
         }
 
         private void branchingToOne(object sender, RoutedEventArgs e)
         {
-            ChangeBackground();
-            branchdata.Start();
-            BrContext.Text = branchdata.consequences;
-            path1.Content = branchdata.choiceOne;
-            path2.Content = branchdata.choiceTwo;
+            x1();
+            ExecuteTheChoice();
         }
 
         private void branchingToTwo(object sender, RoutedEventArgs e)
         {
-            ChangeBackground();
-            branchdata.NotUnderstood();
+            x2();
+            ExecuteTheChoice();
+        }
+        private void ExecuteTheChoice()
+        {
+            Random rand = new Random();
+            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
+            TheGame.Background = brush;
+
             BrContext.Text = branchdata.consequences;
             path1.Content = branchdata.choiceOne;
             path2.Content = branchdata.choiceTwo;
+            x1 = branchdata.oneFn;
+            x2 = branchdata.twoFn;
         }
     }
 

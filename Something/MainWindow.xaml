@@ -10,11 +10,16 @@
     <Grid Width="420" Height="450" HorizontalAlignment="Center" VerticalAlignment="Center">
         <!--MENU-->
         <Grid x:Name="OpeningScreen" Background="#000" Panel.ZIndex="1">
-            <Expander Header="Settings" HorizontalAlignment="Left" Height="70" Margin="5,2,0,0" VerticalAlignment="Top" Width="135" Foreground="White">
-                <Grid Background="White" Width="135" Height="45">
+            <Expander Header="Settings" HorizontalAlignment="Left" Height="60" Margin="5,2,0,0" VerticalAlignment="Top" Width="185" Foreground="White">
+                <Grid Background="White" Width="185" Height="30">
                     <Grid Background="#FF4CB4B2" Margin="2,2.5,4,2">
-                        <CheckBox x:Name="lowCPUmode" Content="Reduce CPU Usage" Height="16" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,0" Click="lowCPUcheck" ToolTip="This removes the Color effect in the Menu"/>
-                        <CheckBox x:Name="InvertColEff" Content="Invert Color Effect" Height="20" Cursor="Hand" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,20,2,0" Click="InvertColCheck"/>
+                        <TextBlock Text="Menu Color Effect:" Margin="2,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <ComboBox x:Name="MenuEffComboBox" Margin="100,2,0,0" Width="75" VerticalAlignment="Top" HorizontalAlignment="Center" SelectionChanged="ComboBoxSelect" SelectedIndex="0">
+                            <ComboBoxItem Content="Default"/>
+                            <ComboBoxItem Content="Inverted Effect"/>
+                            <ComboBoxItem Content="Plain"/>
+                            <ComboBoxItem Content="Disable"/>
+                        </ComboBox>
                     </Grid>
                 </Grid>
             </Expander>
@@ -39,7 +44,7 @@
             <Ellipse x:Name="ellipse1" Fill="Black" HorizontalAlignment="Right" Height="140" Margin="0,-50,-15,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
             <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Margin="0,0,0,0" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
             <Ellipse x:Name="ellipse3" Fill="Black" Height="250" Margin="0,380,0,0" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
-            <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-30,-60,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-50,-50,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -75,7 +80,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" TargetName="Border" Value="#FF323232"/>
+                                <Setter Property="Background" TargetName="Border" Value="Gray"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

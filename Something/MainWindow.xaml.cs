@@ -42,21 +42,24 @@ namespace Something
                 if (ComboxVal == 0)
                 {
                     //default
-                    OpeningScreen.Background = Mainbtn.Foreground = x;
+                    Btn_Abt.Margin = new Thickness(0, 40, 60, 0);
+                    OpeningScreen.Background = Btn_Main.Foreground = x;
                     ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Visible;
                     ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 }
                 else if (ComboxVal == 1)
                 {
                     //inverted
+                    Btn_Abt.Margin = new Thickness(0, 40, 60, 0);
                     ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Visible;
-                    ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = Mainbtn.Foreground = x;
+                    ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = Btn_Main.Foreground = x;
                     OpeningScreen.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 }
                 else if(ComboxVal == 2)
                 {
                     //plain
-                    OpeningScreen.Background = Mainbtn.Foreground = x;
+                    Btn_Abt.Margin = new Thickness(0, 5, 85, 0);
+                    OpeningScreen.Background = Btn_Main.Foreground = x;
                     ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Collapsed;
                 }
 

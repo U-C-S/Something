@@ -25,8 +25,8 @@
             </Expander>
 
             <Button Style="{DynamicResource StyleLinkLikeBtns}" Content="How to Play" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0" Foreground="White"/>
-            <Button Style="{DynamicResource StyleLinkLikeBtns}" Content="About" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,41,62.6,0" Foreground="White" Click="OpenAboutWindow"/>
-            <Button x:Name="Mainbtn" Style="{DynamicResource StyleMainBtn}" Click="TheStart" Width="110" Height="50" Content="Start" FontSize="20" FontFamily="Segoe Print" Background="Black" Foreground="#FFC6E24A" Cursor="Hand" Panel.ZIndex="5">
+            <Button x:Name="Btn_Abt" Style="{DynamicResource StyleLinkLikeBtns}" Content="About" Cursor="Hand" Background="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,60,0" Foreground="White" Click="OpenAboutWindow"/>
+            <Button x:Name="Btn_Main" Style="{DynamicResource StyleMainBtn}" Click="TheStart" Width="110" Height="50" Content="Start" FontSize="20" FontFamily="Segoe Print" Background="Black" Foreground="#FFC6E24A" Cursor="Hand" Panel.ZIndex="5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>

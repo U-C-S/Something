@@ -43,7 +43,7 @@
             <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="1" Margin="0,0,0,0" Stroke="Black" Width="1"/>
             <Ellipse x:Name="ellipse1" Fill="Black" HorizontalAlignment="Right" Height="140" Margin="0,-50,-15,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
             <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Margin="0,0,0,0" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
-            <Ellipse x:Name="ellipse3" Fill="Black" Height="250" Margin="0,380,0,0" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
+            <Ellipse x:Name="ellipse3" Fill="Black" Height="250" Margin="0,385,0,-185" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
             <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-50,-50,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>

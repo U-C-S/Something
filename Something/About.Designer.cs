@@ -1,4 +1,4 @@
-﻿namespace Something
+﻿namespace Content
 {
     partial class About
     {

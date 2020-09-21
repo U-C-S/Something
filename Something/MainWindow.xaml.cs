@@ -15,8 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Content;
 
-namespace Something
+namespace Content
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

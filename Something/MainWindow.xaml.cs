@@ -39,7 +39,7 @@ namespace Content
             if (!StartClicked && !(ComboxVal == 3))
             {
                 double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
-                Brush x = new SolidColorBrush(LongFunctions.HSLtoRGB(hue, 0.5, 0.5));
+                Brush x = new SolidColorBrush(LongFunctions.HtoRGB(hue));
                 if (ComboxVal == 0)
                 {
                     //default
@@ -126,23 +126,9 @@ namespace Content
 
     class LongFunctions
     {
-        public static Color HSLtoRGB(double h, double s, double l)
+        public static Color HtoRGB(double h)
         {
             h = Math.Max(0D, Math.Min(360D, h)) / 360D;
-            s = Math.Max(0D, Math.Min(1D, s));
-            l = Math.Max(0D, Math.Min(1D, l));
-
-            if (Math.Abs(s) < 0.000000000000001)
-            {
-                return Color.FromRgb(
-                        (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{l * 255D:0.00}")))),
-                        (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{l * 255D:0.00}")))),
-                        (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{l * 255D:0.00}")))));
-            }
-
-            double q = (l < .5D) ? (l * (1D + s)) : ((l + s) - (l * s));
-            double p = (2D * l) - q;
-
             double[] T = { (h + (1D / 3D)) , h , (h - (1D / 3D)) };
 
             for (int i = 0; i < 3; i++)
@@ -153,13 +139,13 @@ namespace Content
                     T[i] -= 1D;
 
                 if ((T[i] * 6D) < 1D)
-                    T[i] = p + ((q - p) * 6D * T[i]);
+                    T[i] = 0.25D + (3D * T[i]);
                 else if ((T[i] * 2D) < 1)
-                    T[i] = q;
+                    T[i] = 0.75D;
                 else if ((T[i] * 3D) < 2)
-                    T[i] = p + ((q - p) * ((2D / 3D) - T[i]) * 6D);
+                    T[i] = 0.25D + (3D * ((2D / 3D) - T[i]));
                 else
-                    T[i] = p;
+                    T[i] = 0.25D;
             }
 
             return Color.FromRgb(

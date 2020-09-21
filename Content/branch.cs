@@ -8,78 +8,78 @@ namespace Content
 {
     public class Branch
     {
-        public string consequences { get; set; }
-        public string choiceOne { get; set; }
-        public string choiceTwo { get; set; }
-        public Action oneFn;
-        public Action twoFn;
-        public string choiceSecret { get; set; }
+        public string Consequences { get; set; }
+        public string ChoiceBtn1 { get; set; }
+        public string ChoiceBtn2 { get; set; }
+        public Action ChoseOne;
+        public Action ChoseTwo;
+        public string ChoiceSecret { get; set; }
 
 
         public void intialContext()
         {
-            consequences = "This is a Branching Story line Game. You choose the choices based on the story and The story responds to your choice. Do you Understand?";
-            choiceOne = "Yes";
-            choiceTwo = "No";
-            oneFn = Start;
-            twoFn = NotUnderstood;
+            Consequences = "This is a Branching Story line Game. You choose the choices based on the story and The story responds to your choice. Do you Understand?";
+            ChoiceBtn1 = "Yes";
+            ChoiceBtn2 = "No";
+            ChoseOne = Start;
+            ChoseTwo = NotUnderstood;
         }
         public void NotUnderstood()
         {
-            consequences = "Come on!. You just choose the choices based on the story and The story responds to your choice. Do you Understand? Sorry, Only yes options Available";
-            choiceOne = "Yes";
-            choiceTwo = "Yes";
-            oneFn = twoFn = Start;
+            Consequences = "Come on!. You just choose the choices based on the story and The story responds to your choice. Do you Understand? Sorry, Only yes options Available";
+            ChoiceBtn1 = "Yes";
+            ChoiceBtn2 = "Yes";
+            ChoseOne = ChoseTwo = Start;
         }
 
         public void Start()
         {
-            consequences = "You went to a restaurent. You were given the choice of Coffee or Tea";
-            choiceOne = "Coffee";
-            choiceTwo = "Tea";
-            oneFn = Coffee;
-            twoFn = Tea;
+            Consequences = "You went to a restaurent. You were given the choice of Coffee or Tea";
+            ChoiceBtn1 = "Coffee";
+            ChoiceBtn2 = "Tea";
+            ChoseOne = Coffee;
+            ChoseTwo = Tea;
         }
 
         public void Coffee()
         {
-            consequences = "You ordered the Coffee";
-            choiceOne = "Drink it";
-            choiceTwo = "Spill it on Table and Leave the Resta";
-            oneFn = CoffeeNotGood;
-            twoFn = LeaveTheResta;
+            Consequences = "You ordered the Coffee";
+            ChoiceBtn1 = "Drink it";
+            ChoiceBtn2 = "Spill and Leave";
+            ChoseOne = CoffeeNotGood;
+            ChoseTwo = LeaveTheResta;
         }
         public void CoffeeNotGood()
         {
-            consequences = "You drank the coffee. Then you realised the coffee isn't good. So You decided to Leave and try another Resta";
-            choiceOne = "Leave";
-            choiceTwo = "Leave";
-            oneFn = intialContext;
-            twoFn = LeaveTheResta;
+            Consequences = "You drank the coffee. Then you realised the coffee isn't good. So You decided to Leave and try another Resta";
+            ChoiceBtn1 = "Leave";
+            ChoiceBtn2 = "Leave";
+            ChoseOne = intialContext;
+            ChoseTwo = LeaveTheResta;
         }
 
         public void Tea()
         {
-            consequences = "Oops, Accidentally the Tea is Spilled on the table";
-            choiceOne = "Say sorry!";
-            choiceTwo = "Get out of Resta";
-            oneFn = OutOfTea;
-            twoFn = LeaveTheResta;
+            Consequences = "Oops, Accidentally the Tea is Spilled on the table";
+            ChoiceBtn1 = "Say sorry!";
+            ChoiceBtn2 = "Get out of Resta";
+            ChoseOne = OutOfTea;
+            ChoseTwo = LeaveTheResta;
         }
         public void OutOfTea()
         {
-            consequences = "Sorry! The Waitress says the Resta dont have anymore tea leaves. Suggests you to try Coffee or Find an another Resta";
-            choiceOne = "Order Coffee";
-            choiceTwo = "Leave the Resta";
-            oneFn = Coffee;
-            twoFn = LeaveTheResta;
+            Consequences = "Sorry! The Waitress says the Resta dont have anymore tea leaves. Suggests you to try Coffee or Find an another Resta";
+            ChoiceBtn1 = "Order Coffee";
+            ChoiceBtn2 = "Leave the Resta";
+            ChoseOne = Coffee;
+            ChoseTwo = LeaveTheResta;
         }
         public void LeaveTheResta()
         {
-            consequences = "You leave the Resta to find another Resta";
-            choiceOne = "Next";
-            choiceTwo = "Next";
-            oneFn = twoFn = intialContext;
+            Consequences = "You leave the Resta to find another Resta";
+            ChoiceBtn1 = "Next";
+            ChoiceBtn2 = "Next";
+            ChoseOne = ChoseTwo = intialContext;
         }
 
     }

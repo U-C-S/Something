@@ -115,11 +115,11 @@ namespace Content
             Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
             TheGame.Background = brush;
 
-            BrContext.Text = branchdata.consequences;
-            path1.Content = branchdata.choiceOne;
-            path2.Content = branchdata.choiceTwo;
-            x1 = branchdata.oneFn;
-            x2 = branchdata.twoFn;
+            BrContext.Text = branchdata.Consequences;
+            path1.Content = branchdata.ChoiceBtn1;
+            path2.Content = branchdata.ChoiceBtn2;
+            x1 = branchdata.ChoseOne;
+            x2 = branchdata.ChoseTwo;
         }
     }
 

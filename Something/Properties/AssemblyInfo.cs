@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 
 
-[assembly: AssemblyTitle("Some Untitled Game")]
+[assembly: AssemblyTitle("Some Untitled Text Game")]
 [assembly: AssemblyDescription("This is a experimental Text-Based Branching StoryLine Game. In this game, You make the choices for your Character and Experience the respective Consequences. Have Fun.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("UCS")]
@@ -19,6 +19,6 @@ using System.Windows;
     ResourceDictionaryLocation.None, 
     ResourceDictionaryLocation.SourceAssembly
 )]
-[assembly: AssemblyVersion("0.8.5.1")]
-[assembly: AssemblyFileVersion("0.8.5.1")]
+[assembly: AssemblyVersion("0.9.0.0")]
+[assembly: AssemblyFileVersion("0.9.0.0")]
 [assembly: NeutralResourcesLanguage("en-US")]

@@ -18,6 +18,7 @@ using System.Threading;
 using System.IO;
 using System.Xml;
 using Content;
+using System.Xml.Linq;
 
 namespace Content
 {
@@ -88,40 +89,14 @@ namespace Content
 
         //The game code starts here:
 
-        Branch branchdata = new Branch();
-        Action x1 { get; set; }
-        Action x2 { get; set; }
         private void TheStart(object sender, RoutedEventArgs e)
         {
             StartClicked = true;
             OpeningScreen.Visibility = Visibility.Collapsed;
             TheGame.Visibility = Visibility.Visible;
-            branchdata.intialContext();
-            ExecuteTheChoice();
-        }
 
-        private void branchingToOne(object sender, RoutedEventArgs e)
-        {
-            x1();
-            ExecuteTheChoice();
-        }
-
-        private void branchingToTwo(object sender, RoutedEventArgs e)
-        {
-            x2();
-            ExecuteTheChoice();
-        }
-        private void ExecuteTheChoice()
-        {
-            Random rand = new Random();
-            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
-            TheGame.Background = brush;
-
-            BrContext.Text = branchdata.Consequences;
-            path1.Content = branchdata.ChoiceBtn1;
-            path2.Content = branchdata.ChoiceBtn2;
-            x1 = branchdata.ChoseOne;
-            x2 = branchdata.ChoseTwo;
+            BrContext.Text = XDocument.Load(@"Trees\Test.xml").Root.Element("meta").Element("name").Value.ToString();
+            
         }
     }
 
@@ -157,4 +132,49 @@ namespace Content
         }
 
     }
+
+
+
+
+    /*
+     
+             Branch branchdata = new Branch();
+        Action x1 { get; set; }
+        Action x2 { get; set; }
+        private void TheStart(object sender, RoutedEventArgs e)
+        {
+            StartClicked = true;
+            OpeningScreen.Visibility = Visibility.Collapsed;
+            TheGame.Visibility = Visibility.Visible;
+            branchdata.intialContext();
+            ExecuteTheChoice();
+        }
+
+        private void branchingToOne(object sender, RoutedEventArgs e)
+        {
+            x1();
+            ExecuteTheChoice();
+        }
+
+        private void branchingToTwo(object sender, RoutedEventArgs e)
+        {
+            x2();
+            ExecuteTheChoice();
+        }
+        private void ExecuteTheChoice()
+        {
+            Random rand = new Random();
+            Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 255)));
+            TheGame.Background = brush;
+
+            BrContext.Text = branchdata.Consequences;
+            path1.Content = branchdata.ChoiceBtn1;
+            path2.Content = branchdata.ChoiceBtn2;
+            x1 = branchdata.ChoseOne;
+            x2 = branchdata.ChoseTwo;
+        }
+     
+     
+     
+     */
 }

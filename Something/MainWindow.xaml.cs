@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.IO;
+using System.Xml;
 using Content;
 
 namespace Content

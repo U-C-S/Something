@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <app>
 	<meta>
-		<name>Test</name>
+		<name>Test and It's working</name>
 		<description>To test the ability to parse the XML File</description>
 	</meta>
 	<story>

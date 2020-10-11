@@ -35,7 +35,7 @@ namespace Something
             if (!StartClicked && !(ComboxVal == 3))
             {
                 double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
-                Brush x = new SolidColorBrush(LongFunctions.HtoRGB(hue));
+                Brush x = new SolidColorBrush(Common.HtoRGB(hue));
                 if (ComboxVal == 0)
                 {
                     //default
@@ -75,7 +75,7 @@ namespace Something
         }
         private void OpenAboutWindow(object sender, RoutedEventArgs e)
         {
-            Content.About about = new Content.About();
+            About about = new About();
             about.ShowDialog();
         }
 
@@ -85,45 +85,8 @@ namespace Something
         private void TheStart(object sender, RoutedEventArgs e)
         {
             StartClicked = true;
-            OpeningScreen.Visibility = Visibility.Collapsed;
-            TheGame.Visibility = Visibility.Visible;
-
-            BrContext.Text = XDocument.Load(@"Trees\Test.xml").Root.Element("meta").Element("name").Value.ToString();
-
+            this.NavigationService.Navigate(new Uri("GameSelect.xaml", UriKind.Relative));
         }
-    }
-
-
-    class LongFunctions
-    {
-        public static Color HtoRGB(double h)
-        {
-            h = Math.Max(0D, Math.Min(360D, h)) / 360D;
-            double[] T = { (h + (1D / 3D)), h, (h - (1D / 3D)) };
-
-            for (int i = 0; i < 3; i++)
-            {
-                if (T[i] < 0D)
-                    T[i] += 1D;
-                if (T[i] > 1D)
-                    T[i] -= 1D;
-
-                if ((T[i] * 6D) < 1D)
-                    T[i] = 0.25D + (3D * T[i]);
-                else if ((T[i] * 2D) < 1)
-                    T[i] = 0.75D;
-                else if ((T[i] * 3D) < 2)
-                    T[i] = 0.25D + (3D * ((2D / 3D) - T[i]));
-                else
-                    T[i] = 0.25D;
-            }
-
-            return Color.FromRgb(
-                    (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[0] * 255D:0.00}")))),
-                    (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[1] * 255D:0.00}")))),
-                    (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[2] * 255D:0.00}")))));
-        }
-
     }
 }
 

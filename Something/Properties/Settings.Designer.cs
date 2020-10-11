@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Content.Properties
+namespace Something.Properties
 {
 
 

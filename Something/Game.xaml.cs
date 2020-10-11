@@ -23,6 +23,8 @@ namespace Something
         public Game()
         {
             InitializeComponent();
+            //BrContext.Text = XDocument.Load(@"Trees\Test.xml").Root.Element("meta").Element("name").Value.ToString();
+
         }
     }
 }

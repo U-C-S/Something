@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<meta>
+		<numberofgames>1</numberofgames>
+	</meta>
+	<story name="Test" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+</root>

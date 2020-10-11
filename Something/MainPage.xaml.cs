@@ -30,7 +30,7 @@ namespace Something
 
         private void ComboBoxSelect(object sender, SelectionChangedEventArgs e) => ComboxVal = MenuEffComboBox.SelectedIndex;
 
-        private void mouseColorEffect(object sender, System.Windows.Input.MouseEventArgs e)
+        private void mouseColorEffect(object sender, MouseEventArgs e)
         {
             if (!StartClicked && !(ComboxVal == 3))
             {
@@ -85,7 +85,7 @@ namespace Something
         private void TheStart(object sender, RoutedEventArgs e)
         {
             StartClicked = true;
-            this.NavigationService.Navigate(new Uri("GameSelect.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new GameSelect(ComboxVal));
         }
     }
 }

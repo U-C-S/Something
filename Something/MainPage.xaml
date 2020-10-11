@@ -8,7 +8,7 @@
       d:DesignHeight="420" d:DesignWidth="450" MouseMove="mouseColorEffect"
       Title="MainPage">
 
-    <Grid x:Name="OpeningScreen" Background="#000" Panel.ZIndex="1">
+    <Grid x:Name="OpeningScreen" Background="#000">
         <Expander Header="Settings" HorizontalAlignment="Left" Height="60" Margin="5,2,0,0" VerticalAlignment="Top" Width="185" Foreground="White">
                 <Grid Background="White" Width="185" Height="30">
                     <Grid Background="#FF4CB4B2" Margin="2,2.5,4,2">
@@ -39,7 +39,7 @@
                 <TextBox x:Name="SkipCode_txt" Text="" Width="100" Height="16" HorizontalAlignment="Left" Margin="131,17,0,17" BorderBrush="Black" FontSize="11" VerticalAlignment="Center" ToolTip="Enter the Skip code to skip the story"/>
                 <Button Click="SkipCode_btn" Width="60" Height="16" Content="Skip" HorizontalAlignment="Right" Margin="0,17,131,17" FontSize="10" BorderBrush="Black" Padding="0" Cursor="Hand" VerticalAlignment="Center"/>
             </Grid>
-            <Rectangle x:Name="centerPoint" Fill="#FFF4F4F5" Height="1" Margin="0,0,0,0" Stroke="Black" Width="1"/>
+            <Rectangle x:Name="centerPoint" Height="1" Width="1" Panel.ZIndex="0"/>
             <Ellipse x:Name="ellipse1" Fill="Black" HorizontalAlignment="Right" Height="140" Margin="0,-50,-15,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
             <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Margin="0,0,0,0" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
             <Ellipse x:Name="ellipse3" Fill="Black" Height="250" Margin="0,385,0,-185" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>

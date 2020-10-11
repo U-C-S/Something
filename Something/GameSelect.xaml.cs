@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Something
 {
@@ -25,6 +26,7 @@ namespace Something
         {
             InitializeComponent();
             ComboxVal = a;
+            renderer();
         }
 
         private void mouseColorEffect(object sender, MouseEventArgs e)
@@ -35,28 +37,38 @@ namespace Something
                 Brush x = new SolidColorBrush(Common.HtoRGB(hue));
                 if (ComboxVal == 0)
                 {
-                    //default
-                    //Btn_Abt.Margin = new Thickness(0, 40, 60, 0);
-                    //OpeningScreen.Background = Btn_Main.Foreground = x;
-                    //ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Visible;
-                    //ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    GameSelectScreen.Background = x;
                 }
                 else if (ComboxVal == 1)
                 {
-                    //inverted
-                    //Btn_Abt.Margin = new Thickness(0, 40, 60, 0);
-                    //ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Visible;
-                    //ellipse1.Fill = ellipse2.Fill = ellipse3.Fill = rect1.Fill = Btn_Main.Foreground = x;
-                    //OpeningScreen.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+                    rect1.Fill = x;
+                    GameSelectScreen.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
                 }
                 else if (ComboxVal == 2)
                 {
-                    //plain
-                    //Btn_Abt.Margin = new Thickness(0, 5, 85, 0);
-                    //OpeningScreen.Background = Btn_Main.Foreground = x;
-                    //ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Collapsed;
+                    rect1.Fill = GameSelectScreen.Background = x;
                 }
 
+            }
+        }
+
+        private void renderer()
+        {
+            XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
+            int noofstories = Int16.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
+            for (int i = 0; i < noofstories; i++)
+            {
+                string storyelem = $"story{i + 1}";
+                Button storyBtn = new Button
+                {
+                    Content = storiesXML.Root.Element(storyelem).Attribute("name").Value.ToString(),
+                    Cursor = Cursors.Hand,
+                    Width = 200,
+                    Height = 40,
+                    FontSize = 16,
+                };
+                //storyBtn.Click += new RoutedEventHandler(CharacterClick);
+                SelectPanel.Children.Add(storyBtn);
             }
         }
     }

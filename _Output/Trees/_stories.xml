@@ -3,5 +3,5 @@
 	<meta>
 		<numberofgames>1</numberofgames>
 	</meta>
-	<story name="Test" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story1 name="Test" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
 </root>

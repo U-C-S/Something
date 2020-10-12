@@ -52,9 +52,9 @@ namespace Something
             }
         }
 
+        XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
         private void renderer()
         {
-            XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
             int noofstories = Int16.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
             for (int i = 0; i < noofstories; i++)
             {
@@ -66,10 +66,16 @@ namespace Something
                     Width = 210,
                     Height = 60,
                     FontSize = 16,
+                    Tag = storyelem
                 };
-                //storyBtn.Click += new RoutedEventHandler(CharacterClick);
+                storyBtn.Click += new RoutedEventHandler(StoryBtn_click);
                 SelectPanel.Children.Add(storyBtn);
             }
+        }
+
+        private void StoryBtn_click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<meta>
-		<numberofgames>3</numberofgames>
+		<numberofgames>6</numberofgames>
 	</meta>
 	<story1 name="Test" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
-	<story2 name="Test3" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
-	<story3 name="Test2" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story2 name="Test2" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story3 name="Test3" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story4 name="Test4" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story5 name="Test5" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story6 name="Test6" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
 </root>

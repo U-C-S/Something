@@ -25,14 +25,13 @@ namespace Something
         {
             InitializeComponent();
         }
-        bool StartClicked = false;
         int ComboxVal;
 
         private void ComboBoxSelect(object sender, SelectionChangedEventArgs e) => ComboxVal = MenuEffComboBox.SelectedIndex;
 
         private void mouseColorEffect(object sender, MouseEventArgs e)
         {
-            if (!StartClicked && !(ComboxVal == 3))
+            if (ComboxVal != 3)
             {
                 double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
                 Brush x = new SolidColorBrush(Common.HtoRGB(hue));
@@ -65,28 +64,13 @@ namespace Something
         private void SkipCode_btn(object sender, RoutedEventArgs e)
         {
             if (SkipCode_txt.Text == "")
-            {
-                System.Windows.MessageBox.Show("That's empty");
-            }
+                MessageBox.Show("That's empty");
             else
-            {
-                System.Windows.MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
-            }
+                MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
         }
-        private void OpenAboutWindow(object sender, RoutedEventArgs e)
-        {
-            About about = new About();
-            about.ShowDialog();
-        }
+        private void OpenAboutWindow(object sender, RoutedEventArgs e) => new About().ShowDialog();
 
-
-        //The game code starts here:
-
-        private void TheStart(object sender, RoutedEventArgs e)
-        {
-            StartClicked = true;
-            this.NavigationService.Navigate(new GameSelect(ComboxVal));
-        }
+        private void TheStart(object sender, RoutedEventArgs e) => NavigationService.Navigate(new GameSelect(ComboxVal));
     }
 }
 

@@ -8,11 +8,11 @@
       d:DesignHeight="420" d:DesignWidth="450"
       Title="Game">
 
-    <Grid x:Name="TheGame" Background="#FF4FB092">
-        <TextBlock x:Name="BrContext" Background="Wheat" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="360" Height="300" FontSize="14" Padding="2">
+    <Grid x:Name="TheGame">
+        <TextBlock x:Name="BrContext" Background="Wheat" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Height="300">
         </TextBlock>
 
-        <Button x:Name="path1" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,243,72" BorderBrush="{x:Null}" Cursor="Hand"/>
-        <Button x:Name="path2" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="243,0,0,72" BorderBrush="{x:Null}" Cursor="Hand"/>
+        <Button x:Name="path1" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="43,0,286.6,40" BorderBrush="{x:Null}" Cursor="Hand"/>
+        <Button x:Name="path2" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="286,0,43.6,40" BorderBrush="{x:Null}" Cursor="Hand"/>
     </Grid>
 </Page>

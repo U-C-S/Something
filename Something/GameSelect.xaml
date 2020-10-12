@@ -9,9 +9,9 @@
       Title="GameSelect">
 
     <Grid x:Name="GameSelectScreen">
-        <TextBlock Text="Choose a Story" Margin="0,46,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="18" Width="120" Height="24" Foreground="White"/>
-        <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Width="330" Height="300" Panel.ZIndex="0" RadiusX="20" RadiusY="20"/>
-        <StackPanel x:Name="SelectPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
+        <TextBlock Text="Choose a Story" Foreground="White" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="18" Width="120" Height="24"/>
+        <Rectangle x:Name="rect1" Fill="Black" Margin="0,0,0,40" VerticalAlignment="Bottom" Width="330" Height="360" Panel.ZIndex="0" RadiusX="20" RadiusY="50"/>
+        <StackPanel x:Name="SelectPanel" VerticalAlignment="Center" Width="250">
         </StackPanel>
 
 

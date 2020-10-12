@@ -63,8 +63,8 @@ namespace Something
                 {
                     Content = storiesXML.Root.Element(storyelem).Attribute("name").Value.ToString(),
                     Cursor = Cursors.Hand,
-                    Width = 200,
-                    Height = 40,
+                    Width = 210,
+                    Height = 60,
                     FontSize = 16,
                 };
                 //storyBtn.Click += new RoutedEventHandler(CharacterClick);

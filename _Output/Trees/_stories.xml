@@ -3,7 +3,7 @@
 	<meta>
 		<numberofgames>6</numberofgames>
 	</meta>
-	<story1 name="Test" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
+	<story1 name="Test1" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
 	<story2 name="Test2" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
 	<story3 name="Test3" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>
 	<story4 name="Test4" description="To test the ability to parse the XML File" address="Trees\Test.xml"/>

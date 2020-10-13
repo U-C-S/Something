@@ -5,14 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Something"
       mc:Ignorable="d" 
-      d:DesignHeight="420" d:DesignWidth="450"
+      d:DesignWidth="420" d:DesignHeight="450"
       Title="Game">
 
     <Grid x:Name="TheGame">
-        <TextBlock x:Name="BrContext" Background="Wheat" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" Height="300">
-        </TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="BrContext" Background="Wheat" TextWrapping="Wrap" Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="3" Grid.Column="1"/>
 
-        <Button x:Name="path1" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="43,0,286.6,40" BorderBrush="{x:Null}" Cursor="Hand"/>
-        <Button x:Name="path2" Width="120" Height="50" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="286,0,43.6,40" BorderBrush="{x:Null}" Cursor="Hand"/>
+        <Button x:Name="path1" BorderBrush="{x:Null}" Cursor="Hand" Grid.Row="3" Grid.Column="1"/>
+        <Button x:Name="path2" BorderBrush="{x:Null}" Cursor="Hand" Grid.Row="3" Grid.Column="3" />
     </Grid>
 </Page>

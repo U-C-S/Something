@@ -20,9 +20,10 @@ namespace Something
     /// </summary>
     public partial class Game : Page
     {
-        public Game()
+        public Game(string tag)
         {
             InitializeComponent();
+            BrContext.Text = tag;
         }
     }
 }

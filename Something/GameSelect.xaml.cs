@@ -48,14 +48,13 @@ namespace Something
                 {
                     rect1.Fill = GameSelectScreen.Background = x;
                 }
-
             }
         }
 
         XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
         private void renderer()
         {
-            int noofstories = Int16.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
+            int noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
             for (int i = 0; i < noofstories; i++)
             {
                 string storyelem = $"story{i + 1}";
@@ -75,7 +74,8 @@ namespace Something
 
         private void StoryBtn_click(object sender, RoutedEventArgs e)
         {
-            
+            Button clicked = (sender as Button);
+            NavigationService.Navigate(new Game((string)clicked.Tag));
         }
     }
 }

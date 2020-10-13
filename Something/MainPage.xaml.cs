@@ -25,10 +25,11 @@ namespace Something
         {
             InitializeComponent();
         }
+        private void OpenAboutWindow(object sender, RoutedEventArgs e) => new About().ShowDialog();
+        private void TheStart(object sender, RoutedEventArgs e) => NavigationService.Navigate(new GameSelect(ComboxVal));
+
         int ComboxVal;
-
         private void ComboBoxSelect(object sender, SelectionChangedEventArgs e) => ComboxVal = MenuEffComboBox.SelectedIndex;
-
         private void mouseColorEffect(object sender, MouseEventArgs e)
         {
             if (ComboxVal != 3)
@@ -58,9 +59,9 @@ namespace Something
                     OpeningScreen.Background = Btn_Main.Foreground = x;
                     ellipse1.Visibility = ellipse2.Visibility = ellipse3.Visibility = rect1.Visibility = Visibility.Collapsed;
                 }
-
             }
         }
+
         private void SkipCode_btn(object sender, RoutedEventArgs e)
         {
             if (SkipCode_txt.Text == "")
@@ -68,9 +69,6 @@ namespace Something
             else
                 MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
         }
-        private void OpenAboutWindow(object sender, RoutedEventArgs e) => new About().ShowDialog();
-
-        private void TheStart(object sender, RoutedEventArgs e) => NavigationService.Navigate(new GameSelect(ComboxVal));
     }
 }
 

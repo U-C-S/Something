@@ -9,27 +9,20 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Runtime.InteropServices;
-using System.Threading;
 
 namespace Something
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// Completely made by github.com/U-C-S
+    /// Interaction logic for settings.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class settings : Page
     {
-        public MainWindow()
+        public settings()
         {
             InitializeComponent();
-            GameNavigationFrame.Navigate(new MainPage());
-
-            //add a opening video in GIF format...
         }
     }
 }

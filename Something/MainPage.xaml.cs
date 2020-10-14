@@ -62,7 +62,7 @@ namespace Something
             }
         }
 
-        private void Editorbtn_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Coming Soon");
+        private void Editorbtn_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Coming Soon!!!");
     }
 }
 

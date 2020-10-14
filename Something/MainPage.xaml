@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Something"
       mc:Ignorable="d" 
-      d:DesignWidth="430" d:DesignHeight="480" MouseMove="mouseColorEffect"
+      d:DesignWidth="421" d:DesignHeight="486" MouseMove="mouseColorEffect"
       Title="MainPage">
 
     <Grid x:Name="OpeningScreen" Background="#000">
@@ -39,13 +39,10 @@
         <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
         <Ellipse x:Name="ellipse3" Fill="Black" Height="250" VerticalAlignment="Bottom" Margin="0,0,0,-180" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
 
-        <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-60,-60,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Width="175" Height="180" Margin="-60,-60,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="45"/>
-                    <TranslateTransform/>
+                    <RotateTransform Angle="50"/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>

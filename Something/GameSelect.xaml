@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Something"
       mc:Ignorable="d" MouseMove="mouseColorEffect"
-      d:DesignWidth="430" d:DesignHeight="480"
+      d:DesignWidth="421" d:DesignHeight="486"
       Title="GameSelect">
 
     <Grid x:Name="GameSelectScreen">
         <TextBlock Text="Choose a Scenario" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" Margin="0,10,0,0"/>
-        <Rectangle x:Name="rect1" Fill="Black" Width="330" Height="360" Panel.ZIndex="0"/>
-        <StackPanel x:Name="SelectPanel" VerticalAlignment="Center" Width="270" MaxHeight="300"/>
-        <Button Content="Go Back" VerticalAlignment="Bottom" Background="Black" BorderBrush="{x:Null}" Foreground="White" Width="50" Height="21" Margin="0,0,0,25" Click="NavigateBack_Click"/>
+        <Rectangle x:Name="rect1" Fill="Black" Width="330" Height="390" Panel.ZIndex="0"/>
+        <StackPanel x:Name="SelectPanel" VerticalAlignment="Center" Width="270" MaxHeight="360"/>
+        <Button Content="Go Back" VerticalAlignment="Bottom" Background="Black" BorderBrush="{x:Null}" Foreground="White" Width="50" Height="21" Margin="0,0,0,20" Click="NavigateBack_Click"/>
 
         <Rectangle x:Name="centerPoint" Height="1" Width="1" Panel.ZIndex="-1"/>
     </Grid>

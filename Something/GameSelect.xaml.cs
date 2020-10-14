@@ -72,10 +72,8 @@ namespace Something
             }
         }
 
-        private void StoryBtn_click(object sender, RoutedEventArgs e)
-        {
-            Button clicked = (sender as Button);
-            NavigationService.Navigate(new Game((string)clicked.Tag));
-        }
+        private void StoryBtn_click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Game((string)(sender as Button).Tag));
+
+        private void NavigateBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
     }
 }

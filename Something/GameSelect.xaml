@@ -12,7 +12,7 @@
         <TextBlock Text="Choose a Story" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Center" Margin="0,10,0,0"/>
         <Rectangle x:Name="rect1" Fill="Black" Margin="0,0,0,46" VerticalAlignment="Bottom" Width="330" Height="360" Panel.ZIndex="0"/>
         <StackPanel x:Name="SelectPanel" VerticalAlignment="Center" Width="250" MaxHeight="300"/>
-        <Button Content="Go Back" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Black" BorderBrush="{x:Null}" Foreground="White" Width="50" Height="21" Margin="0,0,0,27"/>
+        <Button Content="Go Back" VerticalAlignment="Bottom" Background="Black" BorderBrush="{x:Null}" Foreground="White" Width="50" Height="21" Margin="0,0,0,25" Click="NavigateBack_Click"/>
 
         <Rectangle x:Name="centerPoint" Height="1" Width="1" Panel.ZIndex="-1"/>
     </Grid>

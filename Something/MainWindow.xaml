@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Something"
         mc:Ignorable="d" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
-        Title="Something" Width="440" Height="492">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="420" Height="450">
+        Title="Something" Width="450" Height="522">
+    <Grid Width="430" Height="480">
         <DockPanel Background="#FFAAAAAA">
             <Frame x:Name="GameNavigationFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>

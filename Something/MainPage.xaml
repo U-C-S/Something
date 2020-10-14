@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Something"
       mc:Ignorable="d" 
-      d:DesignWidth="420" d:DesignHeight="450" MouseMove="mouseColorEffect"
+      d:DesignWidth="430" d:DesignHeight="480" MouseMove="mouseColorEffect"
       Title="MainPage">
 
     <Grid x:Name="OpeningScreen" Background="#000">
@@ -33,17 +33,13 @@
             </Button.Resources>
         </Button>
         <TextBlock Margin="0,70,0,0" Text="Something" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Ink Free"/>
-
-        <Grid VerticalAlignment="Bottom" Height="50" Margin="0,0,0,0">
-            <TextBox x:Name="SkipCode_txt" Text="" Width="100" Height="16" HorizontalAlignment="Left" Margin="131,0,0,0" BorderBrush="Black" FontSize="11" ToolTip="Enter the Skip code to skip the story"/>
-            <Button Click="SkipCode_btn" Width="60" Height="16" Content="Skip" HorizontalAlignment="Right" Margin="0,0,131,0" FontSize="10" BorderBrush="Black" Padding="0" Cursor="Hand"/>
-        </Grid>
+        <Button VerticalAlignment="Bottom" Width="120" Height="25" Margin="0,0,0,15" Content="Scenario Builder" Click="Editorbtn_Click" Cursor="Hand"/>
         <Rectangle x:Name="centerPoint" Height="1" Width="1" Panel.ZIndex="0"/>
         <Ellipse x:Name="ellipse1" Fill="Black" HorizontalAlignment="Right" Height="140" Margin="0,-50,-15,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="140" Panel.ZIndex="-1"/>
-        <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Margin="0,0,0,0" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
-        <Ellipse x:Name="ellipse3" Fill="Black" Height="250" Margin="0,370,0,-185" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
+        <Ellipse x:Name="ellipse2" Fill="Black" Height="140" Stroke="White" StrokeThickness="3" Width="140" Panel.ZIndex="-1"/>
+        <Ellipse x:Name="ellipse3" Fill="Black" Height="250" VerticalAlignment="Bottom" Margin="0,0,0,-180" Stroke="White" StrokeThickness="3" Width="300" Panel.ZIndex="-1"/>
 
-        <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-50,-50,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="rect1" Fill="Black" HorizontalAlignment="Left" Height="220" Margin="-60,-60,0,0" Stroke="White" StrokeThickness="3" VerticalAlignment="Top" Width="180" Panel.ZIndex="-1" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

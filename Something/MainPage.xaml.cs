@@ -62,13 +62,7 @@ namespace Something
             }
         }
 
-        private void SkipCode_btn(object sender, RoutedEventArgs e)
-        {
-            if (SkipCode_txt.Text == "")
-                MessageBox.Show("That's empty");
-            else
-                MessageBox.Show($"This Feature is yet to be Implemented. \nYou typed {SkipCode_txt.Text}");
-        }
+        private void Editorbtn_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Coming Soon");
     }
 }
 

@@ -21,12 +21,47 @@ namespace Something
     /// </summary>
     public partial class GameSelect : Page
     {
-        int ComboxVal;
+        int ComboxVal,
+            SelectIndex = 1,
+            noofstories;
         public GameSelect(int a)
         {
             InitializeComponent();
             ComboxVal = a;
-            renderer();
+            noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
+            renderer(1);
+        }
+        XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
+        private void indexMinus(object sender, RoutedEventArgs e)
+        {
+            if(SelectIndex == 1)
+            {
+                renderer(noofstories);
+            }
+            else
+            {
+                renderer(SelectIndex - 1);
+            }
+        }
+
+        private void indexPlus(object sender, RoutedEventArgs e)
+        {
+            if (SelectIndex == noofstories)
+            {
+                renderer(1);
+            }
+            else
+            {
+                renderer(SelectIndex + 1);
+            }
+        }
+
+        private void renderer(int x)
+        {
+            SelectIndex = x;
+            string storyelem = $"story{x}";
+            Heading.Text = storiesXML.Root.Element(storyelem).Element("name").Value.ToString();
+            Description.Text = storiesXML.Root.Element(storyelem).Element("description").Value.ToString();
         }
 
         private void mouseColorEffect(object sender, MouseEventArgs e)
@@ -35,45 +70,32 @@ namespace Something
             {
                 double hue = (Math.Atan2(e.GetPosition(centerPoint).X, e.GetPosition(centerPoint).Y) * 180 / Math.PI) + 180;
                 Brush x = new SolidColorBrush(Common.HtoRGB(hue));
-                if (ComboxVal == 0)
-                {
-                    GameSelectScreen.Background = x;
-                }
-                else if (ComboxVal == 1)
-                {
-                    rect1.Fill = x;
-                    GameSelectScreen.Background = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-                }
-                else if (ComboxVal == 2)
-                {
-                    rect1.Fill = GameSelectScreen.Background = x;
-                }
+                GameSelectScreen.Background = x;
             }
         }
 
-        XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
-        private void renderer()
-        {
-            int noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
-            for (int i = 0; i < noofstories; i++)
-            {
-                string storyelem = $"story{i + 1}";
-                Button storyBtn = new Button
-                {
-                    Content = storiesXML.Root.Element(storyelem).Attribute("name").Value.ToString(),
-                    Cursor = Cursors.Hand,
-                    Width = 210,
-                    Height = 60,
-                    FontSize = 16,
-                    Tag = storyelem
-                };
-                storyBtn.Click += new RoutedEventHandler(StoryBtn_click);
-                SelectPanel.Children.Add(storyBtn);
-            }
-        }
+        //XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
+        //private void renderer()
+        //{
+        //    int noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
+        //    for (int i = 0; i < noofstories; i++)
+        //    {
+        //        string storyelem = $"story{i + 1}";
+        //        Button storyBtn = new Button
+        //        {
+        //            Content = storiesXML.Root.Element(storyelem).Attribute("name").Value.ToString(),
+        //            Cursor = Cursors.Hand,
+        //            Width = 210,
+        //            Height = 60,
+        //            FontSize = 16,
+        //            Tag = storyelem
+        //        };
+        //        storyBtn.Click += new RoutedEventHandler(StoryBtn_click);
+        //        SelectPanel.Children.Add(storyBtn);
+        //    }
+        //}
 
-        private void StoryBtn_click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Game((string)(sender as Button).Tag));
-
-        private void NavigateBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
+        //private void StoryBtn_click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Game((string)(sender as Button).Tag));
+        //private void NavigateBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
     }
 }

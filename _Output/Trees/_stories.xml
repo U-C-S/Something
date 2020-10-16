@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
 	<meta>
-		<numberofgames>3</numberofgames>
+		<numberofgames>4</numberofgames>
 	</meta>
 	<story1>
-		<name font="3">Test1: Beta</name>
+		<name font="2">Test1: Beta</name>
 		<description>This is still in beta. Why not press the next-button to check whether it's working or not</description>
 		<filename>Test.xml</filename>
 	</story1>
 	<story2>
-		<name font="2">Test2: Success</name>
+		<name font="1">Test2: Success</name>
 		<description>So it's a Success. Welcome to Next-gen</description>
 		<filename>Test.xml</filename>
 	</story2>
 	<story3>
-		<name font="1">Death by Killing</name>
+		<name font="4">Death by Killing</name>
 		<description>You can't kill everyone but you can influence everyone.</description>
 		<filename>Test.xml</filename>
 	</story3>
+	<story4>
+		<name font="5">Death by Killing part 2</name>
+		<description>You can't kill everyone but you can influence everyone.</description>
+		<filename>Test.xml</filename>
+	</story4>
 </root>

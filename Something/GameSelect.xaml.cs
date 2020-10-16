@@ -62,6 +62,27 @@ namespace Something
             string storyelem = $"story{x}";
             Heading.Text = storiesXML.Root.Element(storyelem).Element("name").Value.ToString();
             Description.Text = storiesXML.Root.Element(storyelem).Element("description").Value.ToString();
+            Heading.FontFamily = FontofHeading(storyelem);
+        }
+        FontFamily FontofHeading(string source)
+        {
+            string x, val = storiesXML.Root.Element(source).Element("name").Attribute("font").Value.ToString();
+            switch (val)
+            {
+                case "1":
+                    x = "Consolas"; break;
+                case "2":
+                    x = "Segoe Script"; break;
+                case "3":
+                    x = "Copperplate Gothic Light"; break;
+                case "4":
+                    x = "Lucida Calligraphy"; break;
+                case "5":
+                    x = "Viner Hand ITC"; break;
+                default:
+                    x = "Segoe UI"; break;
+            }
+            return new FontFamily(x);
         }
 
         private void mouseColorEffect(object sender, MouseEventArgs e)

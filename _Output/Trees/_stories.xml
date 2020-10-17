@@ -20,7 +20,7 @@
 	</story3>
 	<story4>
 		<name font="5">Death by Killing part 2</name>
-		<description>You can't kill everyone but you can influence everyone.</description>
+		<description>You can't influence everyone.</description>
 		<filename>Test.xml</filename>
 	</story4>
 </root>

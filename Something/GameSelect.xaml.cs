@@ -64,25 +64,24 @@ namespace Something
             Description.Text = storiesXML.Root.Element(storyelem).Element("description").Value.ToString();
             Heading.FontFamily = FontofHeading(storyelem);
         }
-        FontFamily FontofHeading(string source)
+        private FontFamily FontofHeading(string source)
         {
-            string x, val = storiesXML.Root.Element(source).Element("name").Attribute("font").Value.ToString();
-            switch (val)
+            XAttribute val = storiesXML.Root.Element(source).Element("name").Attribute("font");
+            string x;
+            if (val != null)
             {
-                case "1":
-                    x = "Consolas"; break;
-                case "2":
-                    x = "Segoe Script"; break;
-                case "3":
-                    x = "Copperplate Gothic Light"; break;
-                case "4":
-                    x = "Lucida Calligraphy"; break;
-                case "5":
-                    x = "Viner Hand ITC"; break;
-                default:
-                    x = "Segoe UI"; break;
+                string val2 = val.Value.ToString();
+                switch (val2)
+                {
+                    case "1": x = "Segoe Print"; break;
+                    case "2": x = "Comic Sans MS"; break;
+                    case "3": x = "Candara Light"; break;
+                    default:  x = "Segoe UI"; break;
+                }
+                return new FontFamily(x);
             }
-            return new FontFamily(x);
+
+            else return new FontFamily("Segoe UI");
         }
 
         private void mouseColorEffect(object sender, MouseEventArgs e)

@@ -11,7 +11,7 @@
 	<story2>
 		<name>Test2: Success</name>
 		<description>So it's a Success. Welcome to Next-gen</description>
-		<filename>Test.xml</filename>
+		<filename>Test2.xml</filename>
 	</story2>
 	<story3>
 		<name font="2">Death by Mass Killing</name>

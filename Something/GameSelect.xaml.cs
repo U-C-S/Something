@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,9 @@ namespace Something
         int ComboxVal,
             SelectIndex = 1,
             noofstories;
+        string GameAddress;
+        readonly XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
+
         public GameSelect(int a)
         {
             InitializeComponent();
@@ -31,28 +35,21 @@ namespace Something
             noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
             renderer(1);
         }
-        XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
-        private void indexMinus(object sender, RoutedEventArgs e)
+        private void IndexPlusOrMinus(object sender, RoutedEventArgs e)
         {
-            if(SelectIndex == 1)
+            if ((string)(sender as Button).Tag == "m")
             {
-                renderer(noofstories);
+                if (SelectIndex == 1)
+                    renderer(noofstories);
+                else
+                    renderer(SelectIndex - 1);
             }
             else
             {
-                renderer(SelectIndex - 1);
-            }
-        }
-
-        private void indexPlus(object sender, RoutedEventArgs e)
-        {
-            if (SelectIndex == noofstories)
-            {
-                renderer(1);
-            }
-            else
-            {
-                renderer(SelectIndex + 1);
+                if (SelectIndex == noofstories)
+                    renderer(1);
+                else
+                    renderer(SelectIndex + 1);
             }
         }
 
@@ -63,15 +60,16 @@ namespace Something
             Heading.Text = storiesXML.Root.Element(storyelem).Element("name").Value.ToString();
             Description.Text = storiesXML.Root.Element(storyelem).Element("description").Value.ToString();
             Heading.FontFamily = FontofHeading(storyelem);
+
+            GameAddress = storiesXML.Root.Element(storyelem).Element("filename").Value.ToString();
         }
         private FontFamily FontofHeading(string source)
         {
-            XAttribute val = storiesXML.Root.Element(source).Element("name").Attribute("font");
+            XAttribute fontAttr = storiesXML.Root.Element(source).Element("name").Attribute("font");
             string x;
-            if (val != null)
+            if (fontAttr != null)
             {
-                string val2 = val.Value.ToString();
-                switch (val2)
+                switch (fontAttr.Value.ToString())
                 {
                     case "1": x = "Segoe Print"; break;
                     case "2": x = "Comic Sans MS"; break;
@@ -80,7 +78,6 @@ namespace Something
                 }
                 return new FontFamily(x);
             }
-
             else return new FontFamily("Segoe UI");
         }
 
@@ -94,28 +91,11 @@ namespace Something
             }
         }
 
-        //XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
-        //private void renderer()
-        //{
-        //    int noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
-        //    for (int i = 0; i < noofstories; i++)
-        //    {
-        //        string storyelem = $"story{i + 1}";
-        //        Button storyBtn = new Button
-        //        {
-        //            Content = storiesXML.Root.Element(storyelem).Attribute("name").Value.ToString(),
-        //            Cursor = Cursors.Hand,
-        //            Width = 210,
-        //            Height = 60,
-        //            FontSize = 16,
-        //            Tag = storyelem
-        //        };
-        //        storyBtn.Click += new RoutedEventHandler(StoryBtn_click);
-        //        SelectPanel.Children.Add(storyBtn);
-        //    }
-        //}
-
-        //private void StoryBtn_click(object sender, RoutedEventArgs e) => NavigationService.Navigate(new Game((string)(sender as Button).Tag));
-        //private void NavigateBack_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
+        private void beginScenario(object sender, RoutedEventArgs e)
+        {
+            var StartPath = System.IO.Path.Combine("Trees", GameAddress);
+            XDocument GameXML = XDocument.Load(StartPath);
+            NavigationService.Navigate(new Game(GameXML));
+        }
     }
 }

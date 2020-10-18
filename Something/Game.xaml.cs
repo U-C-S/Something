@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace Something
 {
@@ -20,10 +21,16 @@ namespace Something
     /// </summary>
     public partial class Game : Page
     {
-        public Game(string tag)
+        XDocument currentXMLfile;
+        public Game(XDocument currentXMLfile)
         {
             InitializeComponent();
-            BrContext.Text = tag;
+            this.currentXMLfile = currentXMLfile;            
+        }
+
+        void Renderer()
+        {
+
         }
     }
 }

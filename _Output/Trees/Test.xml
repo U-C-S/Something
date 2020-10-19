@@ -17,7 +17,7 @@
 			</choice2>
 		</template>
 
-		<a>
+		<START>
 			<conseq>Which color is yellow?</conseq>
 			<choice1>
 				<btn>light Yellow</btn>
@@ -27,8 +27,8 @@
 				<btn>Pure Red</btn>
 				<action>ab</action>
 			</choice2>
-		</a>
-		<aa>
+		</START>
+		<a>
 			<conseq>You are right. light yellow is a yellow color. Now, Wanna go to next question?</conseq>
 			<choice1>
 				<btn>ok</btn>
@@ -38,8 +38,8 @@
 				<btn>ok</btn>
 				<action>aba</action>
 			</choice2>
-		</aa>
-		<ab>
+		</a>
+		<b>
 			<conseq>Oh you are wrong and unintelligent. now accept light yellow is yellow</conseq>
 			<choice1>
 				<btn>Ok</btn>
@@ -49,7 +49,7 @@
 				<btn>Fine Ok</btn>
 				<action>aba</action>
 			</choice2>
-		</ab>
+		</b>
 		<aba>
 			<conseq>which language is this program written in?</conseq>
 			<choice1>
@@ -65,7 +65,7 @@
 			<conseq>Correct. Wanna play this again?</conseq>
 			<choice1>
 				<btn>Yeh. Why not</btn>
-				<action>a</action>
+				<action>START</action>
 			</choice1>
 			<choice2>
 				<btn>No. Get lost</btn>
@@ -80,7 +80,7 @@
 			</choice1>
 			<choice2>
 				<btn>once again</btn>
-				<action>a</action>
+				<action>START</action>
 			</choice2>
 		</abab>
 	</story>

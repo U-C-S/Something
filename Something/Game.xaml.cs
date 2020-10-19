@@ -25,10 +25,19 @@ namespace Something
         public Game(XDocument currentXMLfile)
         {
             InitializeComponent();
-            this.currentXMLfile = currentXMLfile;            
+            this.currentXMLfile = currentXMLfile;
+            Renderer("START");
         }
 
-        void Renderer()
+        void Renderer(string x)
+        {
+            XElement currentBranch = currentXMLfile.Root.Element("story").Element(x);
+            BrContext.Text = currentBranch.Element("conseq").Value.ToString();
+            path1.Content = currentBranch.Element("choice1").Element("btn").Value.ToString();
+            path2.Content = currentBranch.Element("choice2").Element("btn").Value.ToString();
+        }
+
+        private void PathClick(object sender, RoutedEventArgs e)
         {
 
         }

@@ -21,11 +21,11 @@
 			<conseq>Which color is yellow?</conseq>
 			<choice1>
 				<btn>light Yellow</btn>
-				<action>aa</action>
+				<action>a</action>
 			</choice1>
 			<choice2>
 				<btn>Pure Red</btn>
-				<action>ab</action>
+				<action>b</action>
 			</choice2>
 		</START>
 		<a>

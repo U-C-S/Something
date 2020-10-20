@@ -21,25 +21,44 @@ namespace Something
     /// </summary>
     public partial class Game : Page
     {
-        XDocument currentXMLfile;
-        public Game(XDocument currentXMLfile)
+        XDocument SourceFileXML;
+        XElement currentElem;
+        public Game(XDocument XMLfile)
         {
             InitializeComponent();
-            this.currentXMLfile = currentXMLfile;
-            Renderer("START");
+            SourceFileXML = XMLfile;
+            currentElem = SourceFileXML.Root.Element("story").Element("START");
+            Renderer();
         }
 
-        void Renderer(string x)
+        void Renderer()
         {
-            XElement currentBranch = currentXMLfile.Root.Element("story").Element(x);
-            BrContext.Text = currentBranch.Element("conseq").Value.ToString();
-            path1.Content = currentBranch.Element("choice1").Element("btn").Value.ToString();
-            path2.Content = currentBranch.Element("choice2").Element("btn").Value.ToString();
+            BrContext.Text = currentElem.Element("conseq").Value.ToString();
+            path1.Content = currentElem.Element("choice1").Element("btn").Value.ToString();
+            path2.Content = currentElem.Element("choice2").Element("btn").Value.ToString();
         }
 
         private void PathClick(object sender, RoutedEventArgs e)
         {
+            string actionElem;
+            if((string)(sender as Button).Tag == "btn1")
+                actionElem = currentElem.Element("choice1").Element("action").Value.ToString();
+            else
+                actionElem = currentElem.Element("choice2").Element("action").Value.ToString();
 
+            if(actionElem == "END")
+            {
+                GameOver();
+            }
+            else
+            {
+                currentElem = SourceFileXML.Root.Element("story").Element(actionElem);
+                Renderer();
+            }
+        }
+        void GameOver()
+        {
+            NavigationService.Navigate(new MainPage());
         }
     }
 }

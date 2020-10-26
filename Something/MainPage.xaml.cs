@@ -26,7 +26,12 @@ namespace Something
             InitializeComponent();
         }
         private void OpenAboutWindow(object sender, RoutedEventArgs e) => new About().ShowDialog();
-        private void TheStart(object sender, RoutedEventArgs e) => NavigationService.Navigate(new GameSelect(ComboxVal));
+        private void TheStart(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack) NavigationService.RemoveBackEntry();
+            NavigationService.Navigate(new GameSelect(ComboxVal));
+            
+        }
 
         int ComboxVal;
         private void ComboBoxSelect(object sender, SelectionChangedEventArgs e) => ComboxVal = MenuEffComboBox.SelectedIndex;

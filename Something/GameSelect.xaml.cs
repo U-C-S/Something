@@ -81,6 +81,8 @@ namespace Something
             else return new FontFamily("Segoe UI");
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
+
         private void mouseColorEffect(object sender, MouseEventArgs e)
         {
             if (ComboxVal != 3)

@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Xml.Linq;
 
 namespace Something
@@ -39,17 +38,13 @@ namespace Something
         {
             if ((string)(sender as Button).Tag == "m")
             {
-                if (SelectIndex == 1)
-                    renderer(noofstories);
-                else
-                    renderer(SelectIndex - 1);
+                if (SelectIndex == 1) renderer(noofstories);
+                else renderer(SelectIndex - 1);
             }
             else
             {
-                if (SelectIndex == noofstories)
-                    renderer(1);
-                else
-                    renderer(SelectIndex + 1);
+                if (SelectIndex == noofstories) renderer(1);
+                else renderer(SelectIndex + 1);
             }
         }
 
@@ -93,10 +88,9 @@ namespace Something
             }
         }
 
-        private void beginScenario(object sender, RoutedEventArgs e)
+        private void BeginScenario(object sender, RoutedEventArgs e)
         {
-            var StartPath = System.IO.Path.Combine("Trees", GameAddress);
-            XDocument GameXML = XDocument.Load(StartPath);
+            XDocument GameXML = XDocument.Load(Path.Combine("Trees", GameAddress));
             NavigationService.Navigate(new Game(GameXML));
         }
     }

@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Media.Animation;
 
 namespace Something
 {
@@ -27,9 +28,19 @@ namespace Something
         public MainWindow()
         {
             InitializeComponent();
-            GameNavigationFrame.Navigate(new MainPage());
-
-            //add a opening video in GIF format...
+            GameNavigationFrame.Navigate(new OpeningAnim());
         }
+        /* Navigating="GameNavigationFrame_Navigating"
+        private void GameNavigationFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            ThicknessAnimation ta = new ThicknessAnimation {
+                Duration = TimeSpan.FromSeconds(0.3),
+                DecelerationRatio = 0.7,
+                To = new Thickness(0, 0, 0, 0)
+            };
+            ta.From = (e.NavigationMode == NavigationMode.New) ? new Thickness(500, 0, 0, 0) : new Thickness(0, 0, 500, 0);
+            (e.Content as Page).BeginAnimation(MarginProperty, ta);
+        }
+        */
     }
 }

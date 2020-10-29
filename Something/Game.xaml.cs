@@ -33,9 +33,17 @@ namespace Something
 
         void Renderer()
         {
-            BrContext.Text = currentElem.Element("conseq").Value.ToString();
-            path1.Content = currentElem.Element("choice1").Element("btn").Value.ToString();
-            path2.Content = currentElem.Element("choice2").Element("btn").Value.ToString();
+            try
+            {
+                BrContext.Text = currentElem.Element("conseq").Value.ToString();
+                path1.Content = currentElem.Element("choice1").Element("btn").Value.ToString();
+                path2.Content = currentElem.Element("choice2").Element("btn").Value.ToString();
+            }
+            catch (System.NullReferenceException)
+            {
+                Common.ErrorBox(2);
+                GameOver();
+            }
         }
 
         private void PathClick(object sender, RoutedEventArgs e)
@@ -46,7 +54,7 @@ namespace Something
             else
                 actionElem = currentElem.Element("choice2").Element("action").Value.ToString();
 
-            if(actionElem == "END")
+            if(actionElem == "END" || actionElem == null)
             {
                 GameOver();
             }
@@ -58,7 +66,14 @@ namespace Something
         }
         void GameOver()
         {
-            NavigationService.Navigate(new MainPage());
+            try
+            {
+                NavigationService.Navigate(new MainPage());
+            }
+            catch (NullReferenceException)
+            {
+                Common.ErrorBox();
+            }
         }
     }
 }

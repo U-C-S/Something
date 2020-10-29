@@ -30,17 +30,15 @@ namespace Something
             InitializeComponent();
             GameNavigationFrame.Navigate(new OpeningAnim());
         }
-        /* Navigating="GameNavigationFrame_Navigating"
         private void GameNavigationFrame_Navigating(object sender, NavigatingCancelEventArgs e)
         {
-            ThicknessAnimation ta = new ThicknessAnimation {
-                Duration = TimeSpan.FromSeconds(0.3),
-                DecelerationRatio = 0.7,
-                To = new Thickness(0, 0, 0, 0)
+            DoubleAnimation OpaVal = new DoubleAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.4),
+                From = 0.0,
+                To = 1.0,
             };
-            ta.From = (e.NavigationMode == NavigationMode.New) ? new Thickness(500, 0, 0, 0) : new Thickness(0, 0, 500, 0);
-            (e.Content as Page).BeginAnimation(MarginProperty, ta);
+            (e.Content as Page).BeginAnimation(OpacityProperty, OpaVal);
         }
-        */
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Navigation;
 
 namespace Something
 {
@@ -35,6 +37,18 @@ namespace Something
                     (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[0] * 255D:0.00}")))),
                     (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[1] * 255D:0.00}")))),
                     (byte)Math.Max(0, Math.Min(255, Convert.ToInt32(double.Parse($"{T[2] * 255D:0.00}")))));
+        }
+
+        public static void ErrorBox(int x = 0)
+        {
+            string err;
+            switch (x)
+            {
+                case 1: err = "Error! Check the existence of file and addressing of it in the XML file"; break;
+                case 2: err = "Invaild Story Structure"; break;
+                default: err = "Unknown Error"; break;
+            }
+            MessageBox.Show(err);
         }
     }
 }

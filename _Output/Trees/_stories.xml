@@ -11,16 +11,16 @@
 	<story2>
 		<name>Test2: Success</name>
 		<description>So it's a Success. Welcome to Next-gen</description>
-		<filename>Test2.xml</filename>
+		<filename>Test2.story</filename>
 	</story2>
 	<story3>
 		<name font="2">Death by Mass Killing</name>
 		<description>You can't kill everyone but you can influence everyone.</description>
-		<filename>Test.xml</filename>
+		<filename>Test.story</filename>
 	</story3>
 	<story4>
 		<name font="3">Death by Dying</name>
 		<description>You can do it.</description>
-		<filename>Test.xml</filename>
+		<filename>Test.story</filename>
 	</story4>
 </root>

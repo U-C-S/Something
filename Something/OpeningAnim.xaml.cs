@@ -21,9 +21,17 @@ namespace Something
     public partial class OpeningAnim : Page
     {
         public OpeningAnim() => InitializeComponent();
+        private bool skipped;
         private void Page_MouseUp(object sender, MouseButtonEventArgs e) => Skip();
-        private void DoubleAnimationUsingKeyFrames_Completed(object sender, EventArgs e) => Skip();
-        private void Skip() => NavigationService.Navigate(new MainPage());
 
+        private void DoubleAnimationUsingKeyFrames_Completed(object sender, EventArgs e)
+        {
+            if (!skipped) Skip();
+        }
+        private void Skip()
+        {
+            skipped = true;
+            NavigationService.Navigate(new MainPage());
+        }
     }
 }

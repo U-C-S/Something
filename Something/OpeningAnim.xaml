@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Something"
       mc:Ignorable="d" d:DesignWidth="421" d:DesignHeight="486"
-      MouseUp="Page_MouseUp" Title="OpeningAnim">
+      Title="OpeningAnim" MouseUp="Page_MouseUp">
 
     <Grid Background="Black">
         <TextBlock x:Name="thiss" Text="Something" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Opacity="0">
@@ -13,16 +13,17 @@
                     <EventTrigger RoutedEvent="TextBlock.Loaded">
                         <BeginStoryboard>
                             <Storyboard>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="thiss" Storyboard.TargetProperty="Opacity" Duration="0:0:5" Completed="DoubleAnimationUsingKeyFrames_Completed" >
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="thiss" Storyboard.TargetProperty="Opacity" Duration="0:0:4" Completed="DoubleAnimationUsingKeyFrames_Completed" >
                                 <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.5" />
                                 <LinearDoubleKeyFrame Value="1" KeyTime="0:0:1.5" />
                                 <LinearDoubleKeyFrame Value="1" KeyTime="0:0:3" />
-                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:4.5" />
+                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:4" />
                             </DoubleAnimationUsingKeyFrames>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                 </TextBlock.Triggers>
         </TextBlock>
+        <TextBlock Foreground="White" FontSize="8" Text="Made by U-C-S" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0.4" />
     </Grid>
 </Page>

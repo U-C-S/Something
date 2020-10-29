@@ -90,8 +90,16 @@ namespace Something
 
         private void BeginScenario(object sender, RoutedEventArgs e)
         {
-            XDocument GameXML = XDocument.Load(Path.Combine("Trees", GameAddress));
-            NavigationService.Navigate(new Game(GameXML));
+            try
+            {
+                XDocument GameXML = XDocument.Load(Path.Combine("Trees", GameAddress));
+                NavigationService.Navigate(new Game(GameXML));
+            }
+            catch (FileNotFoundException)
+            {
+                Common.ErrorBox(1);
+                NavigationService.GoBack();
+            }
         }
     }
 }

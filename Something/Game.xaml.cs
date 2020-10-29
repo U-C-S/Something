@@ -22,60 +22,50 @@ namespace Something
     /// </summary>
     public partial class Game : Page
     {
-        XDocument SourceFileXML;
+        XDocument SourceFile;
         XElement currentElem;
-        public Game(XDocument XMLfile)
+        public Game(XDocument file)
         {
             InitializeComponent();
-            SourceFileXML = XMLfile;
-            ajna("START");
-            Renderer();
+            SourceFile = file;
+            Renderer("START");
         }
-        void ajna(string source)
+
+        void Renderer(string source)
         {
-            IEnumerable<XElement> a = SourceFileXML.Root.Element("body").Elements("div");
-            foreach (XElement e in a)
-            {
-                if(e.Attribute("id").Value == source)
-                {
-                    currentElem = e;
-                }
-            }
-        }
-        void Renderer()
-        {
+            ElementAttacher(source);
             try
             {
                 BrContext.Text = currentElem.Element("p").Value.ToString();
                 path1.Content = currentElem.Elements("a").First().Value.ToString();
                 path2.Content = currentElem.Elements("a").Last().Value.ToString();
             }
-            catch (System.NullReferenceException)
+            catch (NullReferenceException)
             {
                 Common.ErrorBox(2);
                 GameOver();
             }
         }
+        void ElementAttacher(string source)
+        {
+            IEnumerable<XElement> a = SourceFile.Root.Element("body").Elements("div");
+            foreach (XElement e in a)
+            {
+                if (e.Attribute("id").Value == source)
+                {
+                    currentElem = e;
+                }
+            }
+        }
 
         private void PathClick(object sender, RoutedEventArgs e)
         {
-            string actionElem;
-
-            if ((string)(sender as Button).Tag == "btn1")
-                actionElem = currentElem.Elements("a").First().Attribute("href").Value.ToString();
-            else
-                actionElem = currentElem.Elements("a").Last().Attribute("href").Value.ToString();
-
+            string actionElem = (string)(sender as Button).Tag == "btn1" ? 
+                currentElem.Elements("a").First().Attribute("href").Value.ToString() : currentElem.Elements("a").Last().Attribute("href").Value.ToString();
             actionElem = actionElem.Remove(0,1);
-            if (actionElem == "END")
-            {
-                GameOver();
-            }
-            else
-            {
-                ajna(actionElem);
-                Renderer();
-            }
+
+            if (actionElem == "END") GameOver();
+            else Renderer(actionElem);
         }
         void GameOver()
         {

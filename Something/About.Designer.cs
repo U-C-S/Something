@@ -55,7 +55,7 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(318, 251);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(278, 251);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // labelProductName
@@ -66,7 +66,7 @@
             this.labelProductName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 21);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(306, 21);
+            this.labelProductName.Size = new System.Drawing.Size(266, 21);
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Product Name";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,7 +79,7 @@
             this.labelVersion.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
             this.labelVersion.MaximumSize = new System.Drawing.Size(0, 21);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(306, 21);
+            this.labelVersion.Size = new System.Drawing.Size(266, 21);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,7 +92,7 @@
             this.labelCompanyName.Margin = new System.Windows.Forms.Padding(8, 0, 4, 0);
             this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 21);
             this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(306, 21);
+            this.labelCompanyName.Size = new System.Drawing.Size(266, 21);
             this.labelCompanyName.TabIndex = 22;
             this.labelCompanyName.Text = "Company Name";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,7 +106,7 @@
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(306, 125);
+            this.textBoxDescription.Size = new System.Drawing.Size(266, 125);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Description";
@@ -116,7 +116,7 @@
             this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.okButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(109, 225);
+            this.okButton.Location = new System.Drawing.Point(89, 225);
             this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(100, 22);
@@ -128,7 +128,7 @@
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 273);
+            this.ClientSize = new System.Drawing.Size(302, 273);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);

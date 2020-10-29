@@ -68,7 +68,6 @@ namespace Something
                 {
                     case "1": x = "Segoe Print"; break;
                     case "2": x = "Comic Sans MS"; break;
-                    case "3": x = "Candara Light"; break;
                     default:  x = "Segoe UI"; break;
                 }
                 return new FontFamily(x);
@@ -92,8 +91,8 @@ namespace Something
         {
             try
             {
-                XDocument GameXML = XDocument.Load(Path.Combine("Trees", GameAddress));
-                NavigationService.Navigate(new Game(GameXML));
+                XDocument GameFile = XDocument.Load(Path.Combine("Trees", GameAddress));
+                NavigationService.Navigate(new Game(GameFile));
             }
             catch (FileNotFoundException)
             {

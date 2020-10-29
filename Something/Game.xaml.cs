@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,17 +28,27 @@ namespace Something
         {
             InitializeComponent();
             SourceFileXML = XMLfile;
-            currentElem = SourceFileXML.Root.Element("story").Element("START");
+            ajna("START");
             Renderer();
         }
-
+        void ajna(string source)
+        {
+            IEnumerable<XElement> a = SourceFileXML.Root.Element("body").Elements("div");
+            foreach (XElement e in a)
+            {
+                if(e.Attribute("id").Value == source)
+                {
+                    currentElem = e;
+                }
+            }
+        }
         void Renderer()
         {
             try
             {
-                BrContext.Text = currentElem.Element("conseq").Value.ToString();
-                path1.Content = currentElem.Element("choice1").Element("btn").Value.ToString();
-                path2.Content = currentElem.Element("choice2").Element("btn").Value.ToString();
+                BrContext.Text = currentElem.Element("p").Value.ToString();
+                path1.Content = currentElem.Elements("a").First().Value.ToString();
+                path2.Content = currentElem.Elements("a").Last().Value.ToString();
             }
             catch (System.NullReferenceException)
             {
@@ -49,18 +60,20 @@ namespace Something
         private void PathClick(object sender, RoutedEventArgs e)
         {
             string actionElem;
-            if((string)(sender as Button).Tag == "btn1")
-                actionElem = currentElem.Element("choice1").Element("action").Value.ToString();
-            else
-                actionElem = currentElem.Element("choice2").Element("action").Value.ToString();
 
-            if(actionElem == "END" || actionElem == null)
+            if ((string)(sender as Button).Tag == "btn1")
+                actionElem = currentElem.Elements("a").First().Attribute("href").Value.ToString();
+            else
+                actionElem = currentElem.Elements("a").Last().Attribute("href").Value.ToString();
+
+            actionElem = actionElem.Remove(0,1);
+            if (actionElem == "END")
             {
                 GameOver();
             }
             else
             {
-                currentElem = SourceFileXML.Root.Element("story").Element(actionElem);
+                ajna(actionElem);
                 Renderer();
             }
         }

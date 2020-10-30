@@ -60,8 +60,10 @@ namespace Something
 
         private void PathClick(object sender, RoutedEventArgs e)
         {
-            string actionElem = (string)(sender as Button).Tag == "btn1" ? 
-                currentElem.Elements("a").First().Attribute("href").Value.ToString() : currentElem.Elements("a").Last().Attribute("href").Value.ToString();
+            string actionElem = (string)(sender as Button).Tag == "btn1" 
+                ? currentElem.Elements("a").First().Attribute("href").Value.ToString()
+                : currentElem.Elements("a").Last().Attribute("href").Value.ToString();
+
             actionElem = actionElem.Remove(0,1);
 
             if (actionElem == "END") GameOver();

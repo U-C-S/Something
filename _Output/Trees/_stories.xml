@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-	<meta>
-		<numberofgames>3</numberofgames>
-	</meta>
-	<story1>
-		<name font="1">Test</name>
+	<story>
+		<name font="sp">Test</name>
 		<description>Press Begin to play this Scenario. Probably a dumb scenario, But worth it for this Experimental Application.</description>
 		<filename>Test.html</filename>
-	</story1>
-	<story2>
-		<name font="0">Death by Mass Killing</name>
+	</story>
+	<story>
+		<name font="cs">Death by Mass Killing</name>
 		<description>You can't kill everyone but you can influence everyone.</description>
 		<filename>Test.html</filename>
-	</story2>
-	<story3>
-		<name font="2">Death by Dying</name>
+	</story>
+	<story>
+		<name>Death by Dying</name>
 		<description>You can do it.</description>
 		<filename>Test.html</filename>
-	</story3>
+	</story>
 </root>

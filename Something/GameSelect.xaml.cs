@@ -22,28 +22,38 @@ namespace Something
     public partial class GameSelect : Page
     {
         int ComboxVal,
-            SelectIndex = 1,
-            noofstories;
+            SelectIndex = 0,
+            noofstories = 0;
         string GameAddress;
         readonly XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
+        List<XElement> storey = new List<XElement>();
 
         public GameSelect(int a)
         {
             InitializeComponent();
             ComboxVal = a;
-            noofstories = short.Parse(storiesXML.Root.Element("meta").Element("numberofgames").Value);
-            renderer(1);
+            StoriesXMLFileOperations();
+            renderer(0);
+        }
+        void StoriesXMLFileOperations()
+        {
+            IEnumerable<XElement> stories = storiesXML.Root.Elements("story");
+            foreach (XElement story in stories)
+            {
+                storey.Add(story);
+                noofstories++;
+            }
         }
         private void IndexPlusOrMinus(object sender, RoutedEventArgs e)
         {
             if ((string)(sender as Button).Tag == "m")
             {
-                if (SelectIndex == 1) renderer(noofstories);
+                if (SelectIndex == 0) renderer(noofstories - 1);
                 else renderer(SelectIndex - 1);
             }
             else
             {
-                if (SelectIndex == noofstories) renderer(1);
+                if (SelectIndex == noofstories -1) renderer(0);
                 else renderer(SelectIndex + 1);
             }
         }
@@ -51,23 +61,23 @@ namespace Something
         private void renderer(int x)
         {
             SelectIndex = x;
-            string storyelem = $"story{x}";
-            Heading.Text = storiesXML.Root.Element(storyelem).Element("name").Value.ToString();
-            Description.Text = storiesXML.Root.Element(storyelem).Element("description").Value.ToString();
-            Heading.FontFamily = FontofHeading(storyelem);
-
-            GameAddress = storiesXML.Root.Element(storyelem).Element("filename").Value.ToString();
+            XElement storyelem = storey[x];
+            XElement name = storyelem.Element("name");
+            Heading.Text = name.Value;
+            Heading.FontFamily = FontofHeading(name);
+            Description.Text = storyelem.Element("description").Value.ToString();
+            GameAddress = storyelem.Element("filename").Value.ToString();
         }
-        private FontFamily FontofHeading(string source)
+        private FontFamily FontofHeading(XElement source)
         {
-            XAttribute fontAttr = storiesXML.Root.Element(source).Element("name").Attribute("font");
+            XAttribute HeadFOnt = source.Attribute("font");
             string x;
-            if (fontAttr != null)
+            if (HeadFOnt != null)
             {
-                switch (fontAttr.Value.ToString())
+                switch (HeadFOnt.Value)
                 {
-                    case "1": x = "Segoe Print"; break;
-                    case "2": x = "Comic Sans MS"; break;
+                    case "sp": x = "Segoe Print"; break;
+                    case "cs": x = "Comic Sans MS"; break;
                     default:  x = "Segoe UI"; break;
                 }
                 return new FontFamily(x);

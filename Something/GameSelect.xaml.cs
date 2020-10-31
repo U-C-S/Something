@@ -25,8 +25,8 @@ namespace Something
             SelectIndex = 0,
             noofstories = 0;
         string GameAddress;
-        readonly XDocument storiesXML = XDocument.Load(@"Trees\_stories.xml");
-        List<XElement> storey = new List<XElement>();
+        XDocument TheXML;
+        List<XElement> StoryList = new List<XElement>();
 
         public GameSelect(int a)
         {
@@ -35,12 +35,16 @@ namespace Something
             StoriesXMLFileOperations();
             renderer(0);
         }
+
         void StoriesXMLFileOperations()
         {
-            IEnumerable<XElement> stories = storiesXML.Root.Elements("story");
+            try { TheXML = XDocument.Load(@"Trees\_stories.xml"); }
+                catch (FileNotFoundException) { Common.ErrorBox(3); }
+
+            IEnumerable<XElement> stories = TheXML.Root.Elements("story");
             foreach (XElement story in stories)
             {
-                storey.Add(story);
+                StoryList.Add(story);
                 noofstories++;
             }
         }
@@ -61,7 +65,7 @@ namespace Something
         private void renderer(int x)
         {
             SelectIndex = x;
-            XElement storyelem = storey[x];
+            XElement storyelem = StoryList[x];
             XElement name = storyelem.Element("name");
             Heading.Text = name.Value;
             Heading.FontFamily = FontofHeading(name);
@@ -85,9 +89,9 @@ namespace Something
             else return new FontFamily("Segoe UI");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) => NavigationService.GoBack();
+        private void BackButton(object sender, RoutedEventArgs e) => NavigationService.GoBack();
 
-        private void mouseColorEffect(object sender, MouseEventArgs e)
+        private void MouseColorEffect(object sender, MouseEventArgs e)
         {
             if (ComboxVal != 3)
             {

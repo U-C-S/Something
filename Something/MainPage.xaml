@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Something"
       mc:Ignorable="d" 
-      d:DesignWidth="421" d:DesignHeight="486" MouseMove="mouseColorEffect"
+      d:DesignWidth="421" d:DesignHeight="486" MouseMove="MouseColorEffect"
       Title="MainPage">
 
     <Grid x:Name="OpeningScreen" Background="#000">

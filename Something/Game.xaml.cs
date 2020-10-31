@@ -33,6 +33,7 @@ namespace Something
 
         void Renderer(string source)
         {
+            RandomBackground();
             ElementAttacher(source);
             try
             {
@@ -68,6 +69,11 @@ namespace Something
 
             if (actionElem == "END") GameOver();
             else Renderer(actionElem);
+        }
+        void RandomBackground()
+        {
+            Random random = new Random();
+            TheGame.Background = new SolidColorBrush(Color.FromRgb((byte)random.Next(1, 255), (byte)random.Next(1, 255), (byte)random.Next(1, 255)));
         }
         void GameOver()
         {

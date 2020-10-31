@@ -46,6 +46,7 @@ namespace Something
             {
                 case 1: err = "Error! Check the existence of file and addressing of it in the XML file"; break;
                 case 2: err = "Invaild Story Structure"; break;
+                case 3: err = "Trees/_stories.xml is Non-existent!! You can't start without it."; break;
                 default: err = "Unknown Error"; break;
             }
             MessageBox.Show(err);

@@ -33,7 +33,7 @@ namespace Something
 
         int ComboxVal;
         private void ComboBoxSelect(object sender, SelectionChangedEventArgs e) => ComboxVal = MenuEffComboBox.SelectedIndex;
-        private void mouseColorEffect(object sender, MouseEventArgs e)
+        private void MouseColorEffect(object sender, MouseEventArgs e)
         {
             if (ComboxVal != 3)
             {
@@ -64,7 +64,6 @@ namespace Something
                 }
             }
         }
-
         private void Editorbtn_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Coming Soon!!!");
     }
 }
